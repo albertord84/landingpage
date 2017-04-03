@@ -1,0 +1,21 @@
+{
+  "name": "instag_login",
+  "version": "1.0.0",
+  "description": "Instagram Login Page",
+  "author": "Yordano Pascual",
+  "license": "ISC",
+  "repository": {
+    
+  },
+  "devDependencies": {
+    "angular": "^1.6.3",
+    "angular-cookies": "^1.6.3",
+    "angular-resource": "^1.6.3",
+    "bootstrap": "^3.3.7",
+    "countup.js": "^1.8.2",
+    "grunt": "^1.0.1",
+    "grunt-contrib-concat": "^1.0.1",
+    "jquery": "^3.2.1",
+    "lodash": "^4.17.4"
+  }
+}
