@@ -31,13 +31,14 @@ dumbuApp.controller('MainController', [
 				$(ddToggle).append(caret);
 				if (val.indexOf('pt')!=-1) {
 					// cargar pagina en portugues
-					if (console) console.log('redirect to portuguese version..');
+					if (console) console.log('redirect to portuguese version...');
 					window.location.href = '/index.php';
 				}
-				if (val.indexOf('en')!=-1) {
-					// cargar pagina en ingles
-					if (console) console.log('redirect to english version..');
-					window.location.href = '/index-en.php';
+				else {
+					// cargar pagina traducida
+					if (console) console.log('redirect to translated version...');
+					var tr = val.split('-')[0].trim();
+					window.location.href = '/index.php?l=' + tr;
 				}				
 			}, 300);
 
