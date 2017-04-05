@@ -43,7 +43,7 @@
           </div>
         </div> <!-- end top left contents -->
 
-        <div class="right col-xs-8 col-sm-6 col-md-5 col-lg-4">
+        <div class="right col-xs-12 col-sm-6 col-md-5 col-lg-5">
           <p class="flags"><img src="img/flags.png" /></p>
           <p class="text-uppercase"><b>&iexcl;DUMBU es global!</b></p>
           <div class="small">

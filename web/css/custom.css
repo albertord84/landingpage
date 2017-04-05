@@ -14,11 +14,27 @@ body {
   background-color: black;
 }
 
+.top-stripe .nav {
+  font-size: 12px;
+  color: #fff;
+  margin-top: -10px;
+  margin-right: -5px;
+}
+
+.top-stripe .nav a {
+  color: #7e7e7e;
+  text-transform: none;
+  text-decoration: none;
+}
+
 .top-header {
   max-width: 800px;
   margin-top: 0px;
   margin-left: auto;
   margin-right: auto;
+}
+
+.top-header .left {
 }
 
 .top-header .left .h4 {
@@ -28,7 +44,11 @@ body {
 
 .top-header .left .info {
   padding-top: 40px;
-  padding-left: 30px;
+  padding-left: 20px;
+}
+
+.top-header .left .info p {
+  margin-bottom: 5px;
 }
 
 .top-header .left .info-globe {
@@ -50,7 +70,8 @@ body {
 }
 
 .top-header .right {
-  padding: 20px 10px 20px 30px;
+  margin-top: 20px;
+  padding: 10px 10px 10px 20px;
 }
 
 .top-header .right p {
@@ -72,7 +93,7 @@ body {
 .middle-content.row {
   margin-top: 30px;
   margin-bottom: 30px;
-  padding: 5px;
+  padding: 5px 20px;
 }
 
 .middle-form {
