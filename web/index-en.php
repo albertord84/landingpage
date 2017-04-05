@@ -76,15 +76,15 @@
         </div>
         <div class="form-container col-xs-12 col-sm-6 col-sm-pull-1 col-md-7 col-md-push-1 col-lg-7">
           <form class="form-signin">
-            <h4 class="form-signin-heading text-center">Ckeck your Instagram here</h4>
+            <h4 class="form-signin-heading text-center">Check your Instagram here</h4>
             <label for="inputEmail" 
                    class="sr-only text-left">Instagram user</label>
-            <input type="email" id="inputEmail" 
+            <input type="text" id="inputEmail" 
                    class="form-control text-left" 
-                   placeholder="Usuario de Instagram" required autofocus>
+                   placeholder="Instagram user" required autofocus>
             <label for="inputPassword" class="sr-only">Password</label>
-            <input type="password" id="inputPassword" class="form-control"
-                   placeholder="Contrase&ntilde;a" required>
+            <input type="email" id="inputPassword" class="form-control"
+                   placeholder="E-mail" required>
             <button class="btn btn-lg btn-primary btn-block" 
                     type="submit">Verify</button>
           </form>
