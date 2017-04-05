@@ -23,6 +23,17 @@
       
       <div class="top-stripe row text-center">
         <img src="img/logo-black.png" />
+        <span class="lang-selector dropdown">
+          <a class="btn btn-default dropdown-toggle" 
+                  type="button" id="dropdownLang" data-toggle="dropdown" 
+                  aria-haspopup="true" aria-expanded="true">PT - BR
+            <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="dropdownLang">
+            <!--<li><a href="#">PT - BR</a></li>-->
+            <li><a href="#">EN - EU</a></li>
+          </ul>
+        </span>
       </div>
 
       <div class="top-header row">

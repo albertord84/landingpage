@@ -14,14 +14,33 @@ body {
   background-color: black;
 }
 
-.top-stripe .nav {
-  font-size: 12px;
-  color: #fff;
-  margin-top: -10px;
-  margin-right: -5px;
+.top-stripe img {
+  margin-left: 100px;
 }
 
-.top-stripe .nav a {
+.top-stripe .lang-selector * {
+  font-size: 10px;
+}
+
+.top-stripe .lang-selector {
+  position: relative;
+  color: #fff;
+  margin-right: 50px;
+  float: right;
+}
+
+.top-stripe .lang-selector .btn {
+  background-color: transparent;
+  color: #585858;
+  border: none;
+}
+
+.top-stripe .lang-selector ul {
+  margin-top: 5px;
+  margin-left: -88px;
+}
+
+.top-stripe .lang-selector a {
   color: #7e7e7e;
   text-transform: none;
   text-decoration: none;
