@@ -112,6 +112,18 @@ if (!in_array($_l, $_llist)) {
         </div>
       </div>
 
+      <div class="map row">
+        <div class="h3 col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+          <span class=""><?php echo $_locales[$_l]['map_title']; ?></span>
+        </div>
+        <div class="map-left col-xs-12 col-sm-6 col-md-6 col-lg-6 text-right">
+          <img src="img/map-l.png">
+        </div>
+        <div class="map-right col-xs-12 col-sm-6 col-md-6 col-lg-6 text-left">
+          <img src="img/map-r.png">
+        </div>
+      </div>
+
       <div class="footer row text-center">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
           <p><img src="img/logo-white-plus.png" /></p>

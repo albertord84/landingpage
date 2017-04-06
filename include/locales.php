@@ -15,6 +15,7 @@ $_locales = [
 		'lb_user' => 'Instagram user',
 		'lb_email' => 'E-mail',
 		'frm_bt' => 'Verify',
+		'map_title' => 'Countries with Dumbu subscribers',
 		'copy_r' => 'All rights reserved'
 	],
 	'pt' => [
@@ -31,6 +32,7 @@ $_locales = [
 		'lb_user' => 'Usu&aacute;rio do Instagram',
 		'lb_email' => 'E-mail',
 		'frm_bt' => 'Analisar',
+		'map_title' => 'Pa&iacute;ses com assinantes Dumbu',
 		'copy_r' => 'TODOS OS DIREITOS RESERVADOS'
 	]
 ];
