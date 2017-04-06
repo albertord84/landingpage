@@ -1,8 +1,21 @@
 <?php
 
-$_llist = [ 'en', 'pt' ];
+namespace DUMBU;
 
-$_locales = [
+// Lista de idiomas de DUMBU
+$d_llist = [ 'en', 'pt' ];
+
+// Global de el id de dos caracteres que identifica el idioma
+// y que se pasa en la peticion como parametro. Por defecto es
+// idioma portugues.
+$d_l = $_REQUEST['l'];
+if (!in_array($d_l, $d_llist)) {
+  $d_l = 'pt';
+}
+
+// Esto luego se puede pasar a una BD o a archivos
+// independientes por cada idioma
+$d_locales = [
 	'en' => [
 		'lang' => 'EN - US',
 		'h4-1' => 'Actual Instagram results updated!',
@@ -37,9 +50,27 @@ $_locales = [
 	]
 ];
 
-$_dd_llist = [];
-foreach ($_locales as $key => $locale) {
-	$_dd_llist[ $key ] = $locale['lang'];
+class I18N
+{
+	public static function dl() {
+		return $GLOBALS['d_l'];
+	}
+
+	public static function getLangList() {
+		return $GLOBALS['d_llist'];
+	}
+
+	public static function getLocaleList() {
+		$localeList = [];
+		foreach ($GLOBALS['d_locales'] as $key => $locale) {
+			$localeList[ $key ] = $locale['lang'];
+		}
+		return $localeList;
+	}
+
+	public static function l($s_id) {
+		$l = $GLOBALS['d_l'];
+		echo $GLOBALS['d_locales'][ $l ][ $s_id ];
+	}
 }
 
-?>

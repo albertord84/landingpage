@@ -1,9 +1,5 @@
 <?php
 include('../include/locales.php');
-$_l = $_REQUEST['l'];
-if (!in_array($_l, $_llist)) {
-  $_l = 'pt';
-}
 ?>
 <!DOCTYPE html>
 <html lang="en" data-ng-app="dumbuApp">
@@ -34,12 +30,12 @@ if (!in_array($_l, $_llist)) {
           <a class="btn btn-default dropdown-toggle" 
                   type="button" id="dropdownLang" data-toggle="dropdown" 
                   aria-haspopup="true" aria-expanded="true">
-                  <?php echo $_locales[$_l]['lang']; ?>
+                  <?php DUMBU\I18N::l('lang'); ?>
             <span class="caret"></span>
           </a>
           <ul class="dropdown-menu" aria-labelledby="dropdownLang">
-            <?php foreach ($_dd_llist as $key => $lang) {
-              if ($key != $_l) { ?>
+            <?php foreach (DUMBU\I18N::getLocaleList() as $key => $lang) {
+              if ($key != DUMBU\I18N::dl()) { ?>
                 <li><a href="#"><?php echo $lang; ?></a></li>
               <?php }
             } ?>
@@ -59,8 +55,8 @@ if (!in_array($_l, $_llist)) {
               </div>
             </div>
             <div class="info col-xs-12 col-md-9 col-lg-9">
-              <p class="h4"><?php echo $_locales[$_l]['h4-1']; ?></p>
-              <p class="h4"><?php echo $_locales[$_l]['h4-2']; ?></p>
+              <p class="h4"><?php DUMBU\I18N::l('h4-1'); ?></p>
+              <p class="h4"><?php DUMBU\I18N::l('h4-2'); ?></p>
             </div>
           </div>
         </div> <!-- end top left contents -->
@@ -68,11 +64,11 @@ if (!in_array($_l, $_llist)) {
         <div class="right col-xs-12 col-sm-6 col-md-5 col-lg-5">
           <p class="flags"><img src="img/flags.png" /></p>
           <p class="text-uppercase">
-            <b><?php echo $_locales[$_l]['p-upper']; ?></b>
+            <b><?php DUMBU\I18N::l('p-upper'); ?></b>
           </p>
           <div class="small">
-            <p class="gray"><?php echo $_locales[$_l]['small1']; ?></p>
-            <p class="gray"><?php echo $_locales[$_l]['small2']; ?></p>
+            <p class="gray"><?php DUMBU\I18N::l('small1'); ?></p>
+            <p class="gray"><?php DUMBU\I18N::l('small2'); ?></p>
           </div>
         </div> <!-- end top right contents -->
 
@@ -80,7 +76,7 @@ if (!in_array($_l, $_llist)) {
 
       <div class="middle-content row">
         <h4 class="form-signin-heading text-center">
-          <?php echo $_locales[$_l]['center']; ?>
+          <?php DUMBU\I18N::l('center'); ?>
         </h4>
       </div>
 
@@ -93,28 +89,28 @@ if (!in_array($_l, $_llist)) {
         <div class="form-container col-xs-12 col-sm-6 col-sm-pull-1 col-md-7 col-md-push-1 col-lg-7">
           <form class="form-signin">
             <h4 class="form-signin-heading text-center">
-              <?php echo $_locales[$_l]['frm_title']; ?>
+              <?php DUMBU\I18N::l('frm_title'); ?>
             </h4>
             <label for="inputEmail" 
-                   class="sr-only text-left"><?php echo $_locales[$_l]['lb_user']; ?></label>
+                   class="sr-only text-left"><?php DUMBU\I18N::l('lb_user'); ?></label>
             <input type="text" id="inputEmail" 
                    class="form-control text-left" 
-                   placeholder="<?php echo $_locales[$_l]['lb_user']; ?>" 
+                   placeholder="<?php DUMBU\I18N::l('lb_user'); ?>" 
                    required>
             <label for="inputPassword" class="sr-only">
-              <?php echo $_locales[$_l]['lb_email']; ?>
+              <?php DUMBU\I18N::l('lb_email'); ?>
             </label>
             <input type="email" id="inputPassword" class="form-control"
-                   placeholder="<?php echo $_locales[$_l]['lb_email']; ?>" required>
+                   placeholder="<?php DUMBU\I18N::l('lb_email'); ?>" required>
             <button class="btn btn-lg btn-primary btn-block" 
-                    type="submit"><?php echo $_locales[$_l]['frm_bt']; ?></button>
+                    type="submit"><?php DUMBU\I18N::l('frm_bt'); ?></button>
           </form>
         </div>
       </div>
 
       <div class="map row">
         <div class="h3 col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
-          <span class=""><?php echo $_locales[$_l]['map_title']; ?></span>
+          <span class=""><?php DUMBU\I18N::l('map_title'); ?></span>
         </div>
         <div class="map-left col-xs-12 col-sm-6 col-md-6 col-lg-6 text-right">
           <img src="img/map-l.png">
@@ -128,7 +124,7 @@ if (!in_array($_l, $_llist)) {
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
           <p><img src="img/logo-white-plus.png" /></p>
           <p class="text-uppercase">
-            DUMBU 2017 - <?php echo $_locales[$_l]['copy_r']; ?>
+            DUMBU <?php echo date('Y'); ?> - <?php DUMBU\I18N::l('copy_r'); ?>
           </p>
         </div>
       </div>
