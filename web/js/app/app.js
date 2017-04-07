@@ -29,17 +29,30 @@ dumbuApp.controller('MainController', [
 				$(caret).attr('class', 'caret');
 				$(ddToggle).text(origVal + ' ');
 				$(ddToggle).append(caret);
+				// Crear formulario de redireccion
+				var frm = document.createElement('form');
+				$(frm).attr('method', 'get');
+				$(frm).attr('action', '.');
+				$(document.body).append(frm);
+				// Redireccionar de acuerdo al idioma
 				if (val.indexOf('pt')!=-1) {
 					// cargar pagina en portugues
 					if (console) console.log('redirect to portuguese version...');
-					window.location.href = '/index.php';
+					//window.location.href = '/index.php';
+					$(frm).submit();
 				}
 				else {
 					// cargar pagina traducida
 					if (console) console.log('redirect to translated version...');
 					var tr = val.split('-')[0].trim();
-					window.location.href = '/index.php?l=' + tr;
-				}				
+					//window.location.href = '/index.php?l=' + tr;
+					var inp = document.createElement('input');
+					$(inp).attr('type', 'hidden');
+					$(inp).attr('name', 'l');
+					$(inp).attr('value', tr);
+					$(frm).append(inp);
+					$(frm).submit();
+				}
 			}, 300);
 
 		});
