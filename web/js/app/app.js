@@ -38,14 +38,12 @@ dumbuApp.controller('MainController', [
 				if (val.indexOf('pt')!=-1) {
 					// cargar pagina en portugues
 					if (console) console.log('redirect to portuguese version...');
-					//window.location.href = '/index.php';
 					$(frm).submit();
 				}
 				else {
 					// cargar pagina traducida
 					if (console) console.log('redirect to translated version...');
 					var tr = val.split('-')[0].trim();
-					//window.location.href = '/index.php?l=' + tr;
 					var inp = document.createElement('input');
 					$(inp).attr('type', 'hidden');
 					$(inp).attr('name', 'l');
