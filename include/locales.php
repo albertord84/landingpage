@@ -8,7 +8,7 @@ $d_llist = [ 'en', 'pt' ];
 // Global de el id de dos caracteres que identifica el idioma
 // y que se pasa en la peticion como parametro. Por defecto es
 // idioma portugues.
-$d_l = $_REQUEST['l'];
+$d_l = isset($_REQUEST['l']) ? $_REQUEST['l'] : 'pt';
 if (!in_array($d_l, $d_llist)) {
   $d_l = 'pt';
 }
