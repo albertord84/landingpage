@@ -91,19 +91,21 @@ include('../include/locales.php');
             <h4 class="form-signin-heading text-center">
               <?php DUMBU\I18N::l('frm_title'); ?>
             </h4>
-            <label for="inputEmail" 
+            <label for="inputProf" 
                    class="sr-only text-left"><?php DUMBU\I18N::l('lb_user'); ?></label>
-            <input type="text" id="inputEmail" 
+            <input type="text" id="inputProf" 
                    class="form-control text-left" 
                    placeholder="<?php DUMBU\I18N::l('lb_user'); ?>" 
-                   required>
-            <label for="inputPassword" class="sr-only">
+                   required data-ng-model="instagProf">
+            <label for="inputEMail" class="sr-only">
               <?php DUMBU\I18N::l('lb_email'); ?>
             </label>
-            <input type="email" id="inputPassword" class="form-control"
-                   placeholder="<?php DUMBU\I18N::l('lb_email'); ?>" required>
+            <input type="email" id="inputEMail" class="form-control"
+                   placeholder="<?php DUMBU\I18N::l('lb_email'); ?>" 
+                   required data-ng-model="eMail">
             <button class="btn btn-lg btn-primary btn-block" 
-                    type="submit"><?php DUMBU\I18N::l('frm_bt'); ?></button>
+                    data-ng-click="checkInstagProfile()" 
+                    type="button"><?php DUMBU\I18N::l('frm_bt'); ?></button>
           </form>
         </div>
       </div>
@@ -135,6 +137,8 @@ include('../include/locales.php');
     <script src="js/bootstrap.min.js"></script>
     <script src="js/angular.js"></script>
     <script src="js/app/app.js"></script>
+    <script src="js/app/services.js"></script>
+    <script src="js/app/controllers.js"></script>
 
   </body>
 </html>
