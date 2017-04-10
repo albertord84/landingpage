@@ -14,10 +14,10 @@ angular.module('dumbuApp')
           $timeout(function _delayProfilePhotoShow() {
             if (console) console.log(_json);
             // Reflejar nombre del perfil
-            $scope.profName = _json.user.username;
+            $scope.profName = _json.username;
             // Mostrar imagen del perfil
             $('div.prof-picture.hidden').css({
-              'background-image': 'url(' + _json.user.profile_pic_url + ')'
+              'background-image': 'url(' + _json.profile_pic_url + ')'
               //'background-image': 'url(img/icon.png)'
             });
             // Dar efecto de que la imagen va apareciendo
