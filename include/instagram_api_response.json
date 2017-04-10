@@ -5,7 +5,7 @@
 		"user":{
 			"is_verified":false,
 			"follower_count":12,
-			"profile_pic_url":"https:\/\/instagram.fgcj1-1.fna.fbcdn.net\/t51.2885-19\/11906329_960233084022564_1448528159_a.jpg",
+			"profile_pic_url":"img/local-prof-photo.jpg",
 			"pk":"3440811602",
 			"username":"n0b0dy",
 			"full_name":"TestProfile",
@@ -19,7 +19,7 @@
 		"user":{
 			"is_verified":false,
 			"profile_pic_id":"1390097972796963739_4154225315",
-			"profile_pic_url":"https:\/\/ig-s-a-a.akamaihd.net\/hphotos-ak-xfa1\/t51.2885-19\/s150x150\/15048130_1421300544835612_7226250855970766848_a.jpg",
+			"profile_pic_url":"img/local-prof-photo.jpg",
 			"pk":"4154995399",
 			"username":"n0b0dytw0",
 			"full_name":"0rd4n0tw0",
