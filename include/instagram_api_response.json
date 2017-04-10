@@ -1,34 +1,17 @@
 {
 	"offlineProfile": true,
-	"users":[{
-		"position":0,
-		"user":{
-			"is_verified":false,
-			"follower_count":12,
-			"profile_pic_url":"img/local-prof-photo.jpg",
-			"pk":"3440811602",
-			"username":"n0b0dy",
-			"full_name":"TestProfile",
-			"byline":"10 followers",
-			"is_private":false,
-			"has_anonymous_profile_picture":true,
-			"mutual_followers_count":2
-		}
-	},{
-		"position":1,
-		"user":{
-			"is_verified":false,
-			"profile_pic_id":"1390097972796963739_4154225315",
-			"profile_pic_url":"img/local-prof-photo.jpg",
-			"pk":"4154995399",
-			"username":"n0b0dytw0",
-			"full_name":"0rd4n0tw0",
-			"byline":"41 followers",
-			"is_private":false,
-			"has_anonymous_profile_picture":false,
-			"follower_count":41,"mutual_followers_count":3
-		}
-	}],
+	"user":{
+		"is_verified":false,
+		"follower_count":12,
+		"profile_pic_url":"img/local-prof-photo.jpg",
+		"pk":"3440811602",
+		"username":"n0b0dy",
+		"full_name":"TestProfile",
+		"byline":"10 followers",
+		"is_private":false,
+		"has_anonymous_profile_picture":true,
+		"mutual_followers_count":2
+	},
 	"hashtags":[],
 	"status":"ok",
 	"has_more":false,

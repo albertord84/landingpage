@@ -86,30 +86,34 @@ include('../include/locales.php');
         <div class="col-xs-12 col-sm-6 col-md-3 col-lg-4 col-lg-push-1">
           <div class="phone-img text-center">
             <img class="" src="img/phone.png" />
-            <div class="prof-name"><b>@user</b></div>
+            <div class="prof-name">
+              <b data-ng-bind="profName">@user</b>
+            </div>
             <div class="prof-picture hidden"></div>
           </div>
         </div>
         <div class="form-container col-xs-12 col-sm-6 col-sm-pull-1 col-md-7 col-md-push-1 col-lg-6">
           <form class="form-signin">
-            <h4 class="form-signin-heading text-center">
-              <?php DUMBU\I18N::l('frm_title'); ?>
-            </h4>
-            <label for="inputProf" 
-                   class="sr-only text-left"><?php DUMBU\I18N::l('lb_user'); ?></label>
-            <input type="text" id="inputProf" 
-                   class="form-control text-left" 
-                   placeholder="<?php DUMBU\I18N::l('lb_user'); ?>" 
-                   required data-ng-model="instagProf">
-            <label for="inputEMail" class="sr-only">
-              <?php DUMBU\I18N::l('lb_email'); ?>
-            </label>
-            <input type="email" id="inputEMail" class="form-control"
-                   placeholder="<?php DUMBU\I18N::l('lb_email'); ?>" 
-                   required data-ng-model="eMail">
-            <button class="btn btn-lg btn-primary btn-block" 
-                    data-ng-click="checkInstagProfile()" 
-                    type="button"><?php DUMBU\I18N::l('frm_bt'); ?></button>
+            <fieldset data-ng-disabled="loading">
+              <h4 class="form-signin-heading text-center">
+                <?php DUMBU\I18N::l('frm_title'); ?>
+              </h4>
+              <label for="inputProf" 
+                     class="sr-only text-left"><?php DUMBU\I18N::l('lb_user'); ?></label>
+              <input type="text" id="inputProf" 
+                     class="form-control text-left" 
+                     placeholder="<?php DUMBU\I18N::l('lb_user'); ?>" 
+                     required data-ng-model="instagProf">
+              <label for="inputEMail" class="sr-only">
+                <?php DUMBU\I18N::l('lb_email'); ?>
+              </label>
+              <input type="email" id="inputEMail" class="form-control"
+                     placeholder="<?php DUMBU\I18N::l('lb_email'); ?>" 
+                     required data-ng-model="eMail">
+              <button class="btn btn-lg btn-primary btn-block" 
+                      data-ng-click="checkInstagProfile()" 
+                      type="button"><?php DUMBU\I18N::l('frm_bt'); ?></button>
+            </fieldset>
           </form>
         </div>
       </div>

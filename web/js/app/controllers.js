@@ -3,7 +3,7 @@ angular.module('dumbuApp')
 .controller('MainController', [
   '$scope', '$timeout', 'InstagProfile', 
   function _MainController($scope, $timeout, InstagProfile) {
-
+    $scope.profName = '@user';
     // Jugar con la K o la M si son cientos, miles,
     // cientos de miles o millones la cantidad de
     // usuarios devueltos
