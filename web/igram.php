@@ -33,7 +33,6 @@ else {
     $html = curl_exec($ch);
     $content = json_decode($html);
     curl_close($ch);
-    echo $content; exit();
     if (is_object($content) && $content->status === 'ok') {
       $users = $content->users;
       if (is_array($users)) {
