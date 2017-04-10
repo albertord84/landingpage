@@ -12,7 +12,7 @@ angular.module('dumbuApp')
         var _r = $resource('igram.php', { 'instagProf': $scope.instagProf });
         _r.get().$promise.then(function _getProfileInfoSuccess(_json) {
           $timeout(function _delayProfilePhotoShow() {
-            if (console) console.log(_json);
+            if (console) console.log(_json.profile_pic_url);
             // Reflejar nombre del perfil
             $scope.profName = _json.username;
             // Mostrar imagen del perfil
