@@ -10,6 +10,8 @@ include('../include/locales.php');
 
     <title>DUMBU</title>
 
+    <link rel="shortcut icon" href="https://dumbu.one/dumbu/src/assets/images/icon.png">
+
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/custom.css" rel="stylesheet">
 
