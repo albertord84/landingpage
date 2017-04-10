@@ -16,12 +16,15 @@ angular.module('dumbuApp')
             // Reflejar nombre del perfil
             $scope.profName = _json.username;
             // Mostrar imagen del perfil
-            $('div.prof-picture.hidden').css({
+            $('div.prof-picture').css({
               'background-image': 'url(' + _json.profile_pic_url + ')'
               //'background-image': 'url(img/icon.png)'
             });
+            if (!$('div.prof-picture').hasClass('hidden')) {
+              $('div.prof-picture').addClass('hidden');
+            }
             // Dar efecto de que la imagen va apareciendo
-            $('div.prof-picture.hidden').hide()
+            $('div.prof-picture').hide()
               .removeClass('hidden').fadeIn(600);
             $scope.loading = false;
             // Cambiar campos del formulario
