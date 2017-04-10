@@ -83,13 +83,14 @@ include('../include/locales.php');
       </div>
 
       <div class="middle-form row">
-        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 col-lg-push-1">
+        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-4 col-lg-push-1">
           <div class="phone-img text-center">
             <img class="" src="img/phone.png" />
-            <!--<span><b>@user</b></span>-->
+            <div class="prof-name"><b>@user</b></div>
+            <div class="prof-picture hidden"></div>
           </div>
         </div>
-        <div class="form-container col-xs-12 col-sm-6 col-sm-pull-1 col-md-7 col-md-push-1 col-lg-7">
+        <div class="form-container col-xs-12 col-sm-6 col-sm-pull-1 col-md-7 col-md-push-1 col-lg-6">
           <form class="form-signin">
             <h4 class="form-signin-heading text-center">
               <?php DUMBU\I18N::l('frm_title'); ?>

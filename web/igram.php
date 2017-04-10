@@ -1,23 +1,25 @@
 <?php
 
-$instagProf = isset(@$_REQUEST['instagProf']) || 
-  !empty(@$_REQUEST['instagProf']) ? trim($_REQUEST['instagProf']) :
-  FALSE;
-$eMail = isset(@$_REQUEST['eMail']) || 
-  !empty(@$_REQUEST['eMail']) ? trim($_REQUEST['eMail']) :
-  FALSE;
+$local_ip = strstr($_SERVER['REMOTE_ADDR'], "127.") ?
+  TRUE : FALSE;
+
+$instagProf = !empty(@$_REQUEST['instagProf']) ? 
+  trim($_REQUEST['instagProf']) : FALSE;
+$eMail = !empty(@$_REQUEST['eMail']) ? 
+  trim($_REQUEST['eMail']) : FALSE;
 
 // Averiguar si estamos en linea o desconectados
-$cmd_output = `nslookup www.google.com`;
+$cmd_output = shell_exec("nslookup www.google.com 8.8.8.8");
 // Limpiar un poco la salida del comando ejecutado
 $cleared_output = str_replace("  ", " ", strtolower(trim($cmd_output)));
+
 // Si la respuesta contiene una de estas cadenas, estamos offline
 $offline = strstr($cleared_output, "can't resolve") ||
-  strstr($cleared_output, "connection timeout") ||
+  strstr($cleared_output, "connection time") ||
   strstr($cleared_output, "failed") ||
-  strstr($cleared_output, "server: unknown");
+  strstr($cleared_output, "server: unknown") ? TRUE : FALSE;
 
-if ($offline) {
+if ($offline || $local_ip) {
   // Si estamos offline, devolver JSON local de pruebas...
   echo file_get_contents('../include/instagram_api_response.json');
 }
@@ -32,6 +34,7 @@ else {
     $html = curl_exec($ch);
     $content = json_decode($html);
     curl_close($ch);
+    echo $content; exit();
     if (is_object($content) && $content->status === 'ok') {
       $users = $content->users;
       if (is_array($users)) {

@@ -120,7 +120,31 @@ body {
   max-width: 800px;
 }
 
-.middle-form .phone-img {
+.middle-form .phone-img .prof-name {
+  position: relative;
+  top: -150px;
+}
+
+.middle-form .phone-img .prof-picture {
+  background: url('../img/local-prof-photo.jpg') center no-repeat;
+  background-size: cover;
+  position: relative;
+  top: -272px;
+  margin: 0px auto;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.middle-form .phone-img .prof-picture img {
+  width: 80px;
+  height: 80px;  
 }
 
 .middle-form .form-container {
