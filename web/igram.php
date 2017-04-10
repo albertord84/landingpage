@@ -1,7 +1,6 @@
 <?php
 
-$local_ip = strstr($_SERVER['REMOTE_ADDR'], "127.") ?
-  TRUE : FALSE;
+$local_ip = strstr($_SERVER['REMOTE_ADDR'], "127.") ? TRUE : FALSE;
 
 $instagProf = !empty(@$_REQUEST['instagProf']) ? 
   trim($_REQUEST['instagProf']) : FALSE;
