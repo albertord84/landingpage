@@ -29,6 +29,14 @@ module.exports = function(grunt) {
       config.wdir + '/js/jquery.min.js');
   });
 
+  grunt.registerTask('copy-swal', function(){
+    var _c = grunt.file.copy;
+    _c(config.nmods + '/sweetalert/dist/sweetalert.min.js', 
+      config.wdir + '/js/sweetalert.min.js');
+    _c(config.nmods + '/sweetalert/dist/sweetalert.css', 
+      config.wdir + '/css/sweetalert.css');
+  });
+
   grunt.registerTask('copy-bs', function(){
     var _c = grunt.file.copy;
     grunt.task.run('copy-jquery');
