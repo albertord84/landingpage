@@ -113,9 +113,15 @@ $this->load->helper('url');
                      placeholder="<?php echo $trans['lb_email']; ?>" 
                      required data-ng-model="eMail">
               <button class="btn btn-lg btn-primary btn-block" 
+                      data-ng-if="!profVerified" 
                       data-ng-click="checkInstagProfile()" 
                       data-ng-disabled="!instagProf || !eMail" 
                       type="button"><?php echo $trans['frm_bt']; ?></button>
+              <button class="btn btn-lg btn-primary btn-block" 
+                      data-ng-if="profVerified"
+                      data-ng-click="redirect()" 
+                      data-ng-disabled="!instagProf || !eMail" 
+                      type="button"><?php echo $trans['frm_bt2']; ?></button>
             </fieldset>
           </form>
         </div>

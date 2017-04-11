@@ -49,7 +49,7 @@ angular.module('dumbuApp')
             img.src = _json.profile_pic_url;
             $scope.loading = false;
             // Cambiar campos del formulario
-
+            $scope.profVerified = true;
           }, 1000);
         }, function _getProfileInfoFailure(){
           $timeout(function _delayFormActivation() {

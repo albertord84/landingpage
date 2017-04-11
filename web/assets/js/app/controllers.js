@@ -72,6 +72,29 @@ angular.module('dumbuApp')
       InstagProfile.checkProfile($scope);
     };
 
+    $scope.redirect = function _redirect() {
+      $scope.loading = true;
+      var l = $('#dropdownLang').text().trim().toLowerCase();
+      var isPtg = l == "pt - br";
+      var isEng = l == "en - us";
+      var dst = isPtg ? 'dumbu.pro' : 'dumbu.one';
+      var frm = document.createElement('form');
+      $(frm).attr('method', 'get');
+      $(frm).attr('action', 'http://' + dst);
+      $(document.body).append(frm);
+      var inp = document.createElement('input');
+      $(inp).attr('type', 'hidden');
+      $(inp).attr('name', 'username');
+      $(inp).attr('value', $scope.instagProf);
+      $(frm).append(inp);
+      inp = document.createElement('input');
+      $(inp).attr('type', 'hidden');
+      $(inp).attr('name', 'email');
+      $(inp).attr('value', $scope.eMail);
+      $(frm).append(inp);
+      $(frm).submit();
+    };
+
     $scope.setKMSubscribersCount();
     $scope.setLangSelectorEvents();
 
