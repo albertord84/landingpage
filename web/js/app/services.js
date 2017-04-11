@@ -11,8 +11,7 @@ angular.module('dumbuApp')
         // el perfil en Instagram
         var _r = $resource('igram.php', { 'instagProf': $scope.instagProf });
         _r.get().$promise.then(function _getProfileInfoSuccess(_json) {
-          if (console) console.log(_json);
-          if (angular.isUndefined(_json) || _json == null) {
+          if (angular.isUndefined(_json.username)) {
             swal({
               title: "Error",
               text: "Perfil não existe",
