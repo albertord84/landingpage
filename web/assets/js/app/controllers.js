@@ -92,7 +92,10 @@ angular.module('dumbuApp')
       $(inp).attr('name', 'email');
       $(inp).attr('value', $scope.eMail);
       $(frm).append(inp);
-      $(frm).submit();
+      $timeout(function _delaySubmit() {
+        $scope.loading = false;
+        $(frm).submit();
+      }, 600);
     };
 
     $scope.setKMSubscribersCount();
