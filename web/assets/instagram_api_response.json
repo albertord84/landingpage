@@ -1,0 +1,17 @@
+{
+	"offlineProfile": true,
+	"is_verified":false,
+	"follower_count":12,
+	"profile_pic_url":"assets/img/local-prof-photo.jpg",
+	"pk":"3440811602",
+	"username":"n0b0dy",
+	"full_name":"TestProfile",
+	"byline":"10 followers",
+	"is_private":false,
+	"has_anonymous_profile_picture":true,
+	"mutual_followers_count":2,
+	"hashtags":[],
+	"status":"ok",
+	"has_more":false,
+	"places":[]
+}

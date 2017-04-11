@@ -1,154 +1,315 @@
 <?php
-include('../include/locales.php');
-?>
-<!DOCTYPE html>
-<html lang="en" data-ng-app="dumbuApp">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+/**
+ * CodeIgniter
+ *
+ * An open source application development framework for PHP
+ *
+ * This content is released under the MIT License (MIT)
+ *
+ * Copyright (c) 2014 - 2017, British Columbia Institute of Technology
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ *
+ * @package	CodeIgniter
+ * @author	EllisLab Dev Team
+ * @copyright	Copyright (c) 2008 - 2014, EllisLab, Inc. (https://ellislab.com/)
+ * @copyright	Copyright (c) 2014 - 2017, British Columbia Institute of Technology (http://bcit.ca/)
+ * @license	http://opensource.org/licenses/MIT	MIT License
+ * @link	https://codeigniter.com
+ * @since	Version 1.0.0
+ * @filesource
+ */
 
-    <title>DUMBU</title>
+/*
+ *---------------------------------------------------------------
+ * APPLICATION ENVIRONMENT
+ *---------------------------------------------------------------
+ *
+ * You can load different configurations depending on your
+ * current environment. Setting the environment also influences
+ * things like logging and error reporting.
+ *
+ * This can be set to anything, but default usage is:
+ *
+ *     development
+ *     testing
+ *     production
+ *
+ * NOTE: If you change these, also change the error_reporting() code below
+ */
+	define('ENVIRONMENT', isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : 'development');
 
-    <link rel="shortcut icon" href="https://dumbu.one/dumbu/src/assets/images/icon.png">
+/*
+ *---------------------------------------------------------------
+ * ERROR REPORTING
+ *---------------------------------------------------------------
+ *
+ * Different environments will require different levels of error reporting.
+ * By default development will show errors but testing and live will hide them.
+ */
+switch (ENVIRONMENT)
+{
+	case 'development':
+		error_reporting(-1);
+		ini_set('display_errors', 1);
+	break;
 
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/custom.css" rel="stylesheet">
-    <link href="css/sweetalert.css" rel="stylesheet">
+	case 'testing':
+	case 'production':
+		ini_set('display_errors', 0);
+		if (version_compare(PHP_VERSION, '5.3', '>='))
+		{
+			error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED & ~E_STRICT & ~E_USER_NOTICE & ~E_USER_DEPRECATED);
+		}
+		else
+		{
+			error_reporting(E_ALL & ~E_NOTICE & ~E_STRICT & ~E_USER_NOTICE);
+		}
+	break;
 
-    <!-- For IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
+	default:
+		header('HTTP/1.1 503 Service Unavailable.', TRUE, 503);
+		echo 'The application environment is not set correctly.';
+		exit(1); // EXIT_ERROR
+}
 
-  </head>
-  <body data-ng-controller="MainController">
+/*
+ *---------------------------------------------------------------
+ * SYSTEM DIRECTORY NAME
+ *---------------------------------------------------------------
+ *
+ * This variable must contain the name of your "system" directory.
+ * Set the path if it is not in the same directory as this file.
+ */
+	$system_path = 'system';
 
-    <div class="container-fluid">
-      
-      <div class="top-stripe row text-center">
-        <img src="img/logo-black.png" />
-        <span class="lang-selector dropdown">
-          <a class="btn btn-default dropdown-toggle" 
-                  type="button" id="dropdownLang" data-toggle="dropdown" 
-                  aria-haspopup="true" aria-expanded="true">
-                  <?php DUMBU\I18N::l('lang'); ?>
-            <span class="caret"></span>
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="dropdownLang">
-            <?php foreach (DUMBU\I18N::getLocaleList() as $key => $lang) {
-              if ($key != DUMBU\I18N::dl()) { ?>
-                <li><a href="#"><?php echo $lang; ?></a></li>
-              <?php }
-            } ?>
-          </ul>
-        </span>
-      </div>
+/*
+ *---------------------------------------------------------------
+ * APPLICATION DIRECTORY NAME
+ *---------------------------------------------------------------
+ *
+ * If you want this front controller to use a different "application"
+ * directory than the default one you can set its name here. The directory
+ * can also be renamed or relocated anywhere on your server. If you do,
+ * use an absolute (full) server path.
+ * For more info please see the user guide:
+ *
+ * https://codeigniter.com/user_guide/general/managing_apps.html
+ *
+ * NO TRAILING SLASH!
+ */
+	$application_folder = 'application';
 
-      <div class="top-header row">
+/*
+ *---------------------------------------------------------------
+ * VIEW DIRECTORY NAME
+ *---------------------------------------------------------------
+ *
+ * If you want to move the view directory out of the application
+ * directory, set the path to it here. The directory can be renamed
+ * and relocated anywhere on your server. If blank, it will default
+ * to the standard location inside your application directory.
+ * If you do move this, use an absolute (full) server path.
+ *
+ * NO TRAILING SLASH!
+ */
+	$view_folder = '';
 
-        <div class="left col-xs-12 col-sm-6 col-md-7 col-lg-7">
-          <div class="row">
-            <div class="info-globe col-xs-12 col-md-3">
-              <img src="img/info-globe.png" />
-              <div class="user-count">
-                <span count-up end-val="userCount" 
-                      options="countUpOptions"></span>
-              </div>
-            </div>
-            <div class="info col-xs-12 col-md-9 col-lg-9">
-              <p class="h4"><?php DUMBU\I18N::l('h4-1'); ?></p>
-              <p class="h4"><?php DUMBU\I18N::l('h4-2'); ?></p>
-            </div>
-          </div>
-        </div> <!-- end top left contents -->
 
-        <div class="right col-xs-12 col-sm-6 col-md-5 col-lg-5">
-          <p class="flags"><img src="img/flags.png" /></p>
-          <p class="text-uppercase">
-            <b><?php DUMBU\I18N::l('p-upper'); ?></b>
-          </p>
-          <div class="small">
-            <p class="gray"><?php DUMBU\I18N::l('small1'); ?></p>
-            <p class="gray"><?php DUMBU\I18N::l('small2'); ?></p>
-          </div>
-        </div> <!-- end top right contents -->
+/*
+ * --------------------------------------------------------------------
+ * DEFAULT CONTROLLER
+ * --------------------------------------------------------------------
+ *
+ * Normally you will set your default controller in the routes.php file.
+ * You can, however, force a custom routing by hard-coding a
+ * specific controller class/function here. For most applications, you
+ * WILL NOT set your routing here, but it's an option for those
+ * special instances where you might want to override the standard
+ * routing in a specific front controller that shares a common CI installation.
+ *
+ * IMPORTANT: If you set the routing here, NO OTHER controller will be
+ * callable. In essence, this preference limits your application to ONE
+ * specific controller. Leave the function name blank if you need
+ * to call functions dynamically via the URI.
+ *
+ * Un-comment the $routing array below to use this feature
+ */
+	// The directory name, relative to the "controllers" directory.  Leave blank
+	// if your controller is not in a sub-directory within the "controllers" one
+	// $routing['directory'] = '';
 
-      </div> <!-- end top contents -->
+	// The controller class file name.  Example:  mycontroller
+	// $routing['controller'] = '';
 
-      <div class="middle-content row">
-        <h4 class="form-signin-heading text-center">
-          <?php DUMBU\I18N::l('center'); ?>
-        </h4>
-      </div>
+	// The controller function you wish to be called.
+	// $routing['function']	= '';
 
-      <div class="middle-form row">
-        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-4 col-lg-push-1">
-          <div class="phone-img text-center">
-            <img class="" src="img/phone.png" />
-            <div class="prof-name">
-              <b data-ng-bind="profName">@user</b>
-            </div>
-            <div class="prof-picture hidden"></div>
-          </div>
-        </div>
-        <div class="form-container col-xs-12 col-sm-6 col-sm-pull-1 col-md-7 col-md-push-1 col-lg-6">
-          <form class="form-signin">
-            <fieldset data-ng-disabled="loading">
-              <h4 class="form-signin-heading text-center">
-                <?php DUMBU\I18N::l('frm_title'); ?>
-              </h4>
-              <label for="inputProf" 
-                     class="sr-only text-left"><?php DUMBU\I18N::l('lb_user'); ?></label>
-              <input type="text" id="inputProf" 
-                     class="form-control text-left" 
-                     placeholder="<?php DUMBU\I18N::l('lb_user'); ?>" 
-                     required data-ng-model="instagProf">
-              <label for="inputEMail" class="sr-only">
-                <?php DUMBU\I18N::l('lb_email'); ?>
-              </label>
-              <input type="email" id="inputEMail" class="form-control"
-                     placeholder="<?php DUMBU\I18N::l('lb_email'); ?>" 
-                     required data-ng-model="eMail">
-              <button class="btn btn-lg btn-primary btn-block" 
-                      data-ng-click="checkInstagProfile()" 
-                      type="button"><?php DUMBU\I18N::l('frm_bt'); ?></button>
-            </fieldset>
-          </form>
-        </div>
-      </div>
 
-      <div class="map row">
-        <div class="h3 col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
-          <span class=""><?php DUMBU\I18N::l('map_title'); ?></span>
-        </div>
-        <div class="map-left col-xs-12 col-sm-6 col-md-6 col-lg-6 text-right">
-          <img src="img/map-l.png">
-        </div>
-        <div class="map-right col-xs-12 col-sm-6 col-md-6 col-lg-6 text-left">
-          <img src="img/map-r.png">
-        </div>
-      </div>
+/*
+ * -------------------------------------------------------------------
+ *  CUSTOM CONFIG VALUES
+ * -------------------------------------------------------------------
+ *
+ * The $assign_to_config array below will be passed dynamically to the
+ * config class when initialized. This allows you to set custom config
+ * items or override any default config values found in the config.php file.
+ * This can be handy as it permits you to share one application between
+ * multiple front controller files, with each file containing different
+ * config values.
+ *
+ * Un-comment the $assign_to_config array below to use this feature
+ */
+	// $assign_to_config['name_of_config_item'] = 'value of config item';
 
-      <div class="footer row text-center">
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-          <p><img src="img/logo-white-plus.png" /></p>
-          <p class="text-uppercase">
-            DUMBU <?php echo date('Y'); ?> - <?php DUMBU\I18N::l('copy_r'); ?>
-          </p>
-        </div>
-      </div>
 
-    </div>
 
-    <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/angular.js"></script>
-    <script src="js/sweetalert.min.js"></script>
-    <script src="js/app/app.js"></script>
-    <script src="js/app/services.js"></script>
-    <script src="js/app/controllers.js"></script>
+// --------------------------------------------------------------------
+// END OF USER CONFIGURABLE SETTINGS.  DO NOT EDIT BELOW THIS LINE
+// --------------------------------------------------------------------
 
-  </body>
-</html>
+/*
+ * ---------------------------------------------------------------
+ *  Resolve the system path for increased reliability
+ * ---------------------------------------------------------------
+ */
+
+	// Set the current directory correctly for CLI requests
+	if (defined('STDIN'))
+	{
+		chdir(dirname(__FILE__));
+	}
+
+	if (($_temp = realpath($system_path)) !== FALSE)
+	{
+		$system_path = $_temp.DIRECTORY_SEPARATOR;
+	}
+	else
+	{
+		// Ensure there's a trailing slash
+		$system_path = strtr(
+			rtrim($system_path, '/\\'),
+			'/\\',
+			DIRECTORY_SEPARATOR.DIRECTORY_SEPARATOR
+		).DIRECTORY_SEPARATOR;
+	}
+
+	// Is the system path correct?
+	if ( ! is_dir($system_path))
+	{
+		header('HTTP/1.1 503 Service Unavailable.', TRUE, 503);
+		echo 'Your system folder path does not appear to be set correctly. Please open the following file and correct this: '.pathinfo(__FILE__, PATHINFO_BASENAME);
+		exit(3); // EXIT_CONFIG
+	}
+
+/*
+ * -------------------------------------------------------------------
+ *  Now that we know the path, set the main path constants
+ * -------------------------------------------------------------------
+ */
+	// The name of THIS file
+	define('SELF', pathinfo(__FILE__, PATHINFO_BASENAME));
+
+	// Path to the system directory
+	define('BASEPATH', $system_path);
+
+	// Path to the front controller (this file) directory
+	define('FCPATH', dirname(__FILE__).DIRECTORY_SEPARATOR);
+
+	// Name of the "system" directory
+	define('SYSDIR', basename(BASEPATH));
+
+	// The path to the "application" directory
+	if (is_dir($application_folder))
+	{
+		if (($_temp = realpath($application_folder)) !== FALSE)
+		{
+			$application_folder = $_temp;
+		}
+		else
+		{
+			$application_folder = strtr(
+				rtrim($application_folder, '/\\'),
+				'/\\',
+				DIRECTORY_SEPARATOR.DIRECTORY_SEPARATOR
+			);
+		}
+	}
+	elseif (is_dir(BASEPATH.$application_folder.DIRECTORY_SEPARATOR))
+	{
+		$application_folder = BASEPATH.strtr(
+			trim($application_folder, '/\\'),
+			'/\\',
+			DIRECTORY_SEPARATOR.DIRECTORY_SEPARATOR
+		);
+	}
+	else
+	{
+		header('HTTP/1.1 503 Service Unavailable.', TRUE, 503);
+		echo 'Your application folder path does not appear to be set correctly. Please open the following file and correct this: '.SELF;
+		exit(3); // EXIT_CONFIG
+	}
+
+	define('APPPATH', $application_folder.DIRECTORY_SEPARATOR);
+
+	// The path to the "views" directory
+	if ( ! isset($view_folder[0]) && is_dir(APPPATH.'views'.DIRECTORY_SEPARATOR))
+	{
+		$view_folder = APPPATH.'views';
+	}
+	elseif (is_dir($view_folder))
+	{
+		if (($_temp = realpath($view_folder)) !== FALSE)
+		{
+			$view_folder = $_temp;
+		}
+		else
+		{
+			$view_folder = strtr(
+				rtrim($view_folder, '/\\'),
+				'/\\',
+				DIRECTORY_SEPARATOR.DIRECTORY_SEPARATOR
+			);
+		}
+	}
+	elseif (is_dir(APPPATH.$view_folder.DIRECTORY_SEPARATOR))
+	{
+		$view_folder = APPPATH.strtr(
+			trim($view_folder, '/\\'),
+			'/\\',
+			DIRECTORY_SEPARATOR.DIRECTORY_SEPARATOR
+		);
+	}
+	else
+	{
+		header('HTTP/1.1 503 Service Unavailable.', TRUE, 503);
+		echo 'Your view folder path does not appear to be set correctly. Please open the following file and correct this: '.SELF;
+		exit(3); // EXIT_CONFIG
+	}
+
+	define('VIEWPATH', $view_folder.DIRECTORY_SEPARATOR);
+
+/*
+ * --------------------------------------------------------------------
+ * LOAD THE BOOTSTRAP FILE
+ * --------------------------------------------------------------------
+ *
+ * And away we go...
+ */
+require_once BASEPATH.'core/CodeIgniter.php';
