@@ -28,9 +28,9 @@ angular.module('dumbuApp')
               // Dar efecto de que la imagen va apareciendo
               $('div.prof-picture').hide()
                 .removeClass('hidden').fadeIn(600);
-              $scope.loading = false;
             };
             img.src = _json.profile_pic_url;
+            $scope.loading = false;
             // Cambiar campos del formulario
             
           }, 1000);
