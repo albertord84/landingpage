@@ -11,11 +11,11 @@ $this->load->helper('url');
 
     <title>DUMBU</title>
 
-    <link rel="shortcut icon" href="<?php echo base_url(); ?>assets/images/icon.png">
+    <link rel="shortcut icon" href="<?php echo uri_string(); ?>assets/images/icon.png">
 
-    <link href="<?php echo base_url(); ?>/assets/css/bootstrap.min.css" rel="stylesheet">
-    <link href="<?php echo base_url(); ?>/assets/css/custom.css" rel="stylesheet">
-    <link href="<?php echo base_url(); ?>/assets/css/sweetalert.css" rel="stylesheet">
+    <link href="<?php echo uri_string(); ?>assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<?php echo uri_string(); ?>assets/css/custom.css" rel="stylesheet">
+    <link href="<?php echo uri_string(); ?>assets/css/sweetalert.css" rel="stylesheet">
 
     <!-- For IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -29,7 +29,7 @@ $this->load->helper('url');
     <div class="container-fluid">
       
       <div class="top-stripe row text-center">
-        <img src="<?php echo base_url(); ?>assets/img/logo-black.png" />
+        <img src="<?php echo uri_string(); ?>assets/img/logo-black.png" />
         <span class="lang-selector dropdown">
           <a class="btn btn-default dropdown-toggle" 
                   type="button" id="dropdownLang" data-toggle="dropdown" 
@@ -52,7 +52,7 @@ $this->load->helper('url');
         <div class="left col-xs-12 col-sm-6 col-md-7 col-lg-7">
           <div class="row">
             <div class="info-globe col-xs-12 col-md-3">
-              <img src="<?php echo base_url(); ?>assets/img/info-globe.png" />
+              <img src="<?php echo uri_string(); ?>assets/img/info-globe.png" />
               <div class="user-count">
                 <span count-up end-val="userCount" 
                       options="countUpOptions"></span>
@@ -66,7 +66,7 @@ $this->load->helper('url');
         </div> <!-- end top left contents -->
 
         <div class="right col-xs-12 col-sm-6 col-md-5 col-lg-5">
-          <p class="flags"><img src="<?php echo base_url(); ?>assets/img/flags.png" /></p>
+          <p class="flags"><img src="<?php echo uri_string(); ?>assets/img/flags.png" /></p>
           <p class="text-uppercase">
             <b><?php echo $trans['p-upper']; ?></b>
           </p>
@@ -87,7 +87,7 @@ $this->load->helper('url');
       <div class="middle-form row">
         <div class="col-xs-12 col-sm-6 col-md-3 col-lg-4 col-lg-push-1">
           <div class="phone-img text-center">
-            <img class="" src="<?php echo base_url(); ?>assets/img/phone.png" />
+            <img class="" src="<?php echo uri_string(); ?>assets/img/phone.png" />
             <div class="prof-name">
               <b data-ng-bind="profName">@user</b>
             </div>
@@ -126,16 +126,16 @@ $this->load->helper('url');
           <span class=""><?php echo $trans['map_title']; ?></span>
         </div>
         <div class="map-left col-xs-12 col-sm-6 col-md-6 col-lg-6 text-right">
-          <img src="<?php echo base_url(); ?>assets/img/map-l.png">
+          <img src="<?php echo uri_string(); ?>assets/img/map-l.png">
         </div>
         <div class="map-right col-xs-12 col-sm-6 col-md-6 col-lg-6 text-left">
-          <img src="<?php echo base_url(); ?>assets/img/map-r.png">
+          <img src="<?php echo uri_string(); ?>assets/img/map-r.png">
         </div>
       </div>
 
       <div class="footer row text-center">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-          <p><img src="<?php echo base_url(); ?>assets/img/logo-white-plus.png" /></p>
+          <p><img src="<?php echo uri_string(); ?>assets/img/logo-white-plus.png" /></p>
           <p class="text-uppercase">
             DUMBU <?php echo date('Y'); ?> - <?php echo $trans['copy_r']; ?>
           </p>
@@ -144,13 +144,13 @@ $this->load->helper('url');
 
     </div>
 
-    <script src="<?php echo base_url(); ?>assets/js/jquery.min.js"></script>
-    <script src="<?php echo base_url(); ?>assets/js/bootstrap.min.js"></script>
-    <script src="<?php echo base_url(); ?>assets/js/angular.js"></script>
-    <script src="<?php echo base_url(); ?>assets/js/sweetalert.min.js"></script>
-    <script src="<?php echo base_url(); ?>assets/js/app/app.js"></script>
-    <script src="<?php echo base_url(); ?>assets/js/app/services.js"></script>
-    <script src="<?php echo base_url(); ?>assets/js/app/controllers.js"></script>
+    <script src="<?php echo uri_string(); ?>assets/js/jquery.min.js"></script>
+    <script src="<?php echo uri_string(); ?>assets/js/bootstrap.min.js"></script>
+    <script src="<?php echo uri_string(); ?>assets/js/angular.js"></script>
+    <script src="<?php echo uri_string(); ?>assets/js/sweetalert.min.js"></script>
+    <script src="<?php echo uri_string(); ?>assets/js/app/app.js"></script>
+    <script src="<?php echo uri_string(); ?>assets/js/app/services.js"></script>
+    <script src="<?php echo uri_string(); ?>assets/js/app/controllers.js"></script>
 
   </body>
 </html>
