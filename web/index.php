@@ -14,6 +14,7 @@ include('../include/locales.php');
 
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/custom.css" rel="stylesheet">
+    <link href="css/sweetalert.css" rel="stylesheet">
 
     <!-- For IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -144,6 +145,7 @@ include('../include/locales.php');
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/angular.js"></script>
+    <script src="js/sweetalert.min.js"></script>
     <script src="js/app/app.js"></script>
     <script src="js/app/services.js"></script>
     <script src="js/app/controllers.js"></script>

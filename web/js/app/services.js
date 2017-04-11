@@ -11,6 +11,15 @@ angular.module('dumbuApp')
         // el perfil en Instagram
         var _r = $resource('igram.php', { 'instagProf': $scope.instagProf });
         _r.get().$promise.then(function _getProfileInfoSuccess(_json) {
+          if (angular.isUndefined(_json)) {
+            swal({
+              title: "Error",
+              text: "Perfil não existe",
+              type: "error"
+            });
+            $scope.loading = false;
+            return;
+          }
           $timeout(function _delayProfilePhotoShow() {
             if (console) console.log(_json.profile_pic_url);
             // Reflejar nombre del perfil
@@ -32,7 +41,7 @@ angular.module('dumbuApp')
             img.src = _json.profile_pic_url;
             $scope.loading = false;
             // Cambiar campos del formulario
-            
+
           }, 1000);
         }, function _getProfileInfoFailure(){
           $timeout(function _delayFormActivation() {
