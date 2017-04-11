@@ -16,18 +16,23 @@ angular.module('dumbuApp')
             // Reflejar nombre del perfil
             $scope.profName = _json.username;
             // Mostrar imagen del perfil
-            $('div.prof-picture').css({
-              'background-image': 'url(' + _json.profile_pic_url + ')'
-              //'background-image': 'url(img/icon.png)'
-            });
-            if (!$('div.prof-picture').hasClass('hidden')) {
-              $('div.prof-picture').addClass('hidden');
-            }
-            // Dar efecto de que la imagen va apareciendo
-            $('div.prof-picture').hide()
-              .removeClass('hidden').fadeIn(600);
-            $scope.loading = false;
+            var img = new Image();
+            img.onload = function _afterLoadImage() {
+              $('div.prof-picture').css({
+                'background-image': 'url(' + _json.profile_pic_url + ')'
+                //'background-image': 'url(img/icon.png)'
+              });
+              if (!$('div.prof-picture').hasClass('hidden')) {
+                $('div.prof-picture').addClass('hidden');
+              }
+              // Dar efecto de que la imagen va apareciendo
+              $('div.prof-picture').hide()
+                .removeClass('hidden').fadeIn(600);
+              $scope.loading = false;
+            };
+            img.src = _json.profile_pic_url;
             // Cambiar campos del formulario
+            
           }, 1000);
         }, function _getProfileInfoFailure(){
           $timeout(function _delayFormActivation() {
