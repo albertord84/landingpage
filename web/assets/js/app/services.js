@@ -1,8 +1,8 @@
 angular.module('dumbuApp')
 
 .service('InstagProfile', [
-  '$resource', '$timeout', '$log', 
-  function _InstagProfile($resource, $timeout, $log){
+  '$resource', '$timeout', '$interval', '$log', 
+  function _InstagProfile($resource, $timeout, $interval, $log){
     return {
       checkProfile: function _checkProfile($scope) {
         // Obtener URL base
@@ -47,9 +47,40 @@ angular.module('dumbuApp')
                 .removeClass('hidden').fadeIn(600);
             };
             img.src = _json.profile_pic_url;
-            $scope.loading = false;
             // Cambiar campos del formulario
             $scope.profVerified = true;
+            var s = 0;
+            var promise = $interval(function _changeSeconds(){
+              // Agregar al texto del boton el conteo regresivo de 5 seg
+              var bt = $('.form-signin button').text();
+              if (s == 0) {
+                bt = bt + ' - ' + s + ' secs';
+              }
+              else {
+                bt = bt.split('-')[0] + ' - ' + s + ' secs';
+              }
+              $('.form-signin button').text(bt);
+              s++;
+            }, 1000, 6).then(function _afterSeconds() {
+              // Restaurar el texto del boton quitanto el conteo regresivo
+              var bt = $('.form-signin button').text();
+              bt = bt.split('-')[0];
+              $('.form-signin button').text(bt);
+              // Restaurar botones
+              $scope.profVerified = false;
+              // Borrar contenido de los campos del formulario
+              $scope.instagProf = '';
+              $scope.eMail = '';
+              // Restaurar imagen del perfil y nombre de usuario
+              $('div.prof-picture').fadeOut(600, function _afterFade(){
+                $(this).addClass('hidden');
+              })
+              $scope.profName = '@user';
+              // Desbloquear el formulario
+              $scope.loading = false;
+              // Redirigir...
+              $scope.redirect();
+            });
           }, 1000);
         }, function _getProfileInfoFailure(){
           $timeout(function _delayFormActivation() {
