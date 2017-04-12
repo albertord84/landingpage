@@ -38,7 +38,7 @@ class Profile extends CI_Controller {
 
 		if ($offline || $local_ip) {
 		  	// Si estamos offline, devolver JSON local de pruebas...
-			$this->offline();
+			echo file_get_contents('assets/instagram_api_response.json');
 			exit();
 		}
 		else {
