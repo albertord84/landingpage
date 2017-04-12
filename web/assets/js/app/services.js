@@ -54,14 +54,14 @@ angular.module('dumbuApp')
               // Agregar al texto del boton el conteo regresivo de 5 seg
               var bt = $('.form-signin button').text();
               if (s == 0) {
-                bt = bt + ' - ' + s + ' secs';
+                bt = bt + ' - ' + s + 's';
               }
               else {
-                bt = bt.split('-')[0] + ' - ' + s + ' secs';
+                bt = bt.split('-')[0] + ' - ' + s + 's';
               }
               $('.form-signin button').text(bt);
               s++;
-            }, 1000, 6).then(function _afterSeconds() {
+            }, 1000, 7).then(function _afterSeconds() {
               // Restaurar el texto del boton quitanto el conteo regresivo
               var bt = $('.form-signin button').text();
               bt = bt.split('-')[0];
