@@ -84,9 +84,9 @@ angular.module('dumbuApp')
 
     $scope.redirect = function _redirect() {
       if (console) {
-        console.log('redirect with user: ' + $scope.instagProf + 
-          ', and email ' + $scope.eMail);
+        console.log($scope.frmSign);
       }
+      return;
       var utmSrc = $scope.getParamByName('utm_source');
       $scope.loading = true;
       var l = $('#dropdownLang').text().trim().toLowerCase();

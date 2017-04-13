@@ -103,7 +103,7 @@ $this->load->helper('url');
           </div>
         </div>
         <div class="form-container col-xs-12 col-sm-6 col-sm-pull-1 col-md-7 col-md-push-1 col-lg-6">
-          <form class="form-signin">
+          <form class="form-signin" name="frmSign">
             <fieldset data-ng-disabled="loading">
               <h4 class="form-signin-heading text-center">
                 <?php echo $trans['frm_title']; ?>
