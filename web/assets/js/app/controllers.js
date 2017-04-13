@@ -98,6 +98,12 @@ angular.module('dumbuApp')
       }, 600);
     };
 
+    $scope.profLowerCase = function _profLowerCase() {
+      if ($scope.instagProf) {
+        $scope.instagProf = $scope.instagProf.toLowerCase();
+      }
+    };
+
     $scope.setKMSubscribersCount();
     $scope.setLangSelectorEvents();
 

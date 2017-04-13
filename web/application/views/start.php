@@ -105,6 +105,7 @@ $this->load->helper('url');
               <input type="text" id="inputProf" 
                      class="form-control text-left" 
                      placeholder="<?php echo $trans['lb_user']; ?>" 
+                     data-ng-change="profLowerCase()" 
                      required data-ng-model="instagProf">
               <label for="inputEMail" class="sr-only">
                 <?php echo $trans['lb_email']; ?>
