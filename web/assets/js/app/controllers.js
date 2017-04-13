@@ -52,8 +52,7 @@ angular.module('dumbuApp')
           // Crear formulario de redireccion/recargar la pagina
           // al seleccionar un idioma diferente
           var frm = document.createElement('form');
-          $(frm).attr('method', 'get');
-          $(frm).attr('action', '.');
+          $(frm).attr({ 'method': 'get', 'action': '.' });
           $(document.body).append(frm);
           // Redireccionar de acuerdo al idioma
           if (val.indexOf('pt')!=-1) {
@@ -68,9 +67,7 @@ angular.module('dumbuApp')
             var inp = document.createElement('input');
             // Agregar el campo al formulario que sera el parametro
             // con el idioma
-            $(inp).attr('type', 'hidden');
-            $(inp).attr('name', 'l');
-            $(inp).attr('value', tr);
+            $(inp).attr({ 'type': 'hidden', 'name': 'l', 'value': tr });
             $(frm).append(inp);
             $(frm).submit();
           }
@@ -90,27 +87,29 @@ angular.module('dumbuApp')
       var isEng = l == "en - us";
       var dst = isPtg ? 'dumbu.pro' : 'dumbu.one';
       var frm = document.createElement('form');
-      $(frm).attr('method', 'get');
-      $(frm).attr('action', 'https://' + dst);
+      $(frm).attr({ 'method': 'get', 'action': 'https://' + dst });
       $(document.body).append(frm);
       var inp = document.createElement('input');
-      $(inp).attr('type', 'hidden');
-      $(inp).attr('name', 'username');
-      $(inp).attr('value', $scope.instagProf);
+      $(inp).attr({ 
+        'type': 'hidden', 'name': 'username', 
+        'value': $scope.instagProf
+      });
       $(frm).append(inp);
       inp = document.createElement('input');
-      $(inp).attr('type', 'hidden');
-      $(inp).attr('name', 'email');
-      $(inp).attr('value', $scope.eMail);
+      $(inp).attr({ 
+        'type': 'hidden', 'name': 'email', 
+        'value': $scope.eMail
+      });
       $(frm).append(inp);
       // Parametro que indica que la llamada a la pagina provenia
       // de un sitio de compras
       if (utmSrc) {
         if (console) console.log('coming from ' + utmSrc);
         inp = document.createElement('input');
-        $(inp).attr('type', 'hidden');
-        $(inp).attr('name', 'utm_source');
-        $(inp).attr('value', utmSrc);
+        $(inp).attr({ 
+          'type': 'hidden', 'name': 'utm_source', 
+          'value': utmSrc
+        });
         $(frm).append(inp);
       }
       $timeout(function _delaySubmit() {
