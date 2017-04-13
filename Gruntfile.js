@@ -4,7 +4,7 @@ module.exports = function(grunt) {
 
   var config = {
     nmods: 'node_modules',
-    wdir: 'web',
+    wdir: 'web/assets',
     concat: {
       angular: {
         src: [
@@ -14,7 +14,7 @@ module.exports = function(grunt) {
           'node_modules/countup.js/dist/countUp.min.js',
           'node_modules/countup.js/dist/angular-countUp.min.js'
         ],
-        dest: 'web/js/angular.js'
+        dest: 'web/assets/js/angular.js'
       }
     }
   };
@@ -35,6 +35,12 @@ module.exports = function(grunt) {
       config.wdir + '/js/sweetalert.min.js');
     _c(config.nmods + '/sweetalert/dist/sweetalert.css', 
       config.wdir + '/css/sweetalert.css');
+  });
+
+  grunt.registerTask('copy-lodash', function(){
+    var _c = grunt.file.copy;
+    _c(config.nmods + '/lodash/lodash.min.js', 
+      config.wdir + '/js/lodash.min.js');
   });
 
   grunt.registerTask('copy-bs', function(){
