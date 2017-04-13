@@ -49,19 +49,19 @@ angular.module('dumbuApp')
             img.src = _json.profile_pic_url;
             // Cambiar campos del formulario
             $scope.profVerified = true;
-            var s = 0;
+            var s = 5;
             var promise = $interval(function _changeSeconds(){
               // Agregar al texto del boton el conteo regresivo de 5 seg
               var bt = $('.form-signin button').text();
-              if (s == 0) {
+              if (s == 5) {
                 bt = bt + ' - ' + s + 's';
               }
               else {
                 bt = bt.split('-')[0] + ' - ' + s + 's';
               }
               $('.form-signin button').text(bt);
-              s++;
-            }, 1000, 7).then(function _afterSeconds() {
+              s--;
+            }, 1000, 6).then(function _afterSeconds() {
               // Restaurar el texto del boton quitanto el conteo regresivo
               var bt = $('.form-signin button').text();
               bt = bt.split('-')[0];
