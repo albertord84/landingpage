@@ -104,6 +104,22 @@ angular.module('dumbuApp')
       }
     };
 
+    $scope.validateMail = function _validateMail() {
+      if ($scope.eMail) {
+        if (_.endsWith($scope.eMail, '.')) {
+          $scope.validMail = false;
+        }
+        if ($scope.eMail.indexOf('@')==-1) {
+          $scope.validMail = false;
+        }
+        if ($scope.eMail.indexOf('.')==-1) {
+          $scope.validMail = false;
+        }
+        $scope.validMail = true;
+      }
+      $scope.validMail = false;
+    }
+
     $scope.setKMSubscribersCount();
     $scope.setLangSelectorEvents();
 
