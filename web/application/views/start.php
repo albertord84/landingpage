@@ -11,7 +11,7 @@ $this->load->helper('url');
 
     <title>DUMBU</title>
 
-    <link rel="shortcut icon" href="<?php echo uri_string(); ?>assets/images/icon.png">
+    <link rel="shortcut icon" href="<?php echo uri_string(); ?>assets/img/icon.png">
 
     <link href="<?php echo uri_string(); ?>assets/css/bootstrap.min.css" rel="stylesheet">
     <link href="<?php echo uri_string(); ?>assets/css/custom.css" rel="stylesheet">
