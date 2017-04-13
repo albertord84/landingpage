@@ -31,6 +31,7 @@ angular.module('dumbuApp')
       {
         var origVal = $(this).text();
         var val = $(this).text().trim().toLowerCase();
+        var img = $(this).find('img');
         $timeout(function _delayLangSelection(){
           // Al cambiar de idioma se pierde la flecha que
           // indica que es un menu desplegable
@@ -38,6 +39,7 @@ angular.module('dumbuApp')
           var caret = document.createElement('span');
           $(caret).attr('class', 'caret');
           $(ddToggle).text(origVal + ' ');
+          $(ddToggle).prepend(img);
           $(ddToggle).append(caret);
           // Crear formulario de redireccion/recargar la pagina
           // al seleccionar un idioma diferente
