@@ -4,6 +4,14 @@ angular.module('dumbuApp')
   '$scope', '$timeout', 'InstagProfile', 
   function _MainController($scope, $timeout, InstagProfile) {
     $scope.profName = '@user';
+    // Para coger parametros que pudieran pasarse a la pagina
+    // Esta funcion la tome de:
+    // http://stackoverflow.com/questions/901115/
+    //   how-can-i-get-query-string-values-in-javascript/901144#901144
+    $scope.getParamByName = function _getParamByName(name) {
+      var match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
+      return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
+    };
     // Jugar con la K o la M si son cientos, miles,
     // cientos de miles o millones la cantidad de
     // usuarios devueltos
@@ -75,6 +83,7 @@ angular.module('dumbuApp')
     };
 
     $scope.redirect = function _redirect() {
+      var utmSrc = $scope.getParamByName('utm_source');
       $scope.loading = true;
       var l = $('#dropdownLang').text().trim().toLowerCase();
       var isPtg = l == "pt - br";
@@ -94,6 +103,15 @@ angular.module('dumbuApp')
       $(inp).attr('name', 'email');
       $(inp).attr('value', $scope.eMail);
       $(frm).append(inp);
+      // Parametro que indica que la llamada a la pagina provenia
+      // de un sitio de compras
+      if (utmSrc) {
+        inp = document.createElement('input');
+        $(inp).attr('type', 'hidden');
+        $(inp).attr('name', 'utm_source');
+        $(inp).attr('value', utmSrc);
+        $(frm).append(inp);
+      }
       $timeout(function _delaySubmit() {
         $scope.loading = false;
         $(frm).submit();
@@ -109,7 +127,8 @@ angular.module('dumbuApp')
     $scope.validateMail = function _validateMail() {
       if ($scope.eMail) {
         $scope.eMail = $scope.eMail.toLowerCase();
-        // RegExp tomada de http://stackoverflow.com/questions/46155/validate-email-address-in-javascript
+        // RegExp tomada de http://stackoverflow.com/questions/46155/
+        //   validate-email-address-in-javascript
         var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         $scope.validMail = re.test($scope.eMail);
         return;
