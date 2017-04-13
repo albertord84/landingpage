@@ -51,6 +51,7 @@ angular.module('dumbuApp')
             $scope.profVerified = true;
             var s = 5;
             var promise = $interval(function _changeSeconds(){
+              $scope.loading = false;
               // Agregar al texto del boton el conteo regresivo de 5 seg
               var bt = $('.form-signin button').text();
               if (s == 5) {
