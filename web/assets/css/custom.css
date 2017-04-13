@@ -139,6 +139,7 @@ body {
   position: relative;
   top: -272px;
   margin: 0px auto;
+  margin-bottom: -80px;
   width: 80px;
   height: 80px;
   border-radius: 50%;
