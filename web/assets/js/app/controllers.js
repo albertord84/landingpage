@@ -83,10 +83,6 @@ angular.module('dumbuApp')
     };
 
     $scope.redirect = function _redirect() {
-      if (console) {
-        console.log($scope.frmSign);
-      }
-      return;
       var utmSrc = $scope.getParamByName('utm_source');
       $scope.loading = true;
       var l = $('#dropdownLang').text().trim().toLowerCase();
@@ -117,7 +113,12 @@ angular.module('dumbuApp')
         $(frm).append(inp);
       }
       $timeout(function _delaySubmit() {
+        // Desbloquear formulario
         $scope.loading = false;
+        // Borrar contenido de los campos del formulario
+        $scope.instagProf = '';
+        $scope.eMail = '';
+        // Finalmente, redirigir...
         $(frm).submit();
       }, 600);
     };

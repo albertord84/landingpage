@@ -69,9 +69,6 @@ angular.module('dumbuApp')
               $('.form-signin button').text(bt);
               // Restaurar botones
               $scope.profVerified = false;
-              // Borrar contenido de los campos del formulario
-              $scope.instagProf = '';
-              $scope.eMail = '';
               // Restaurar imagen del perfil y nombre de usuario
               $('div.prof-picture').fadeOut(600, function _afterFade(){
                 $(this).addClass('hidden');
