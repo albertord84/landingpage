@@ -29,18 +29,26 @@ $this->load->helper('url');
     <div class="container-fluid">
       
       <div class="top-stripe row text-center">
-        <img src="<?php echo uri_string(); ?>assets/img/logo-black.png" />
+        <img class="logo-black" src="<?php echo uri_string(); ?>assets/img/logo-black.png" />
         <span class="lang-selector dropdown">
           <a class="btn btn-default dropdown-toggle" 
                   type="button" id="dropdownLang" data-toggle="dropdown" 
                   aria-haspopup="true" aria-expanded="true">
-                  <?php echo $trans['lang']; ?>
+            <img class="hidden-xs flag" src="<?php echo uri_string() . 'assets/img/' . 
+              str_replace(' ', '', strtolower($trans['lang'])) . '-flag.png'; ?>" />&nbsp;
+            <?php echo $trans['lang']; ?>
             <span class="caret"></span>
           </a>
-          <ul class="dropdown-menu" aria-labelledby="dropdownLang">
+          <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownLang">
             <?php foreach ($langList as $key => $lang) {
               if ($key != $_l) { ?>
-                <li><a href="#"><?php echo $lang; ?></a></li>
+                <li>
+                  <a href="#">
+                    <img class="hidden-xs flag" src="<?php echo uri_string() . 'assets/img/' . 
+                      str_replace(' ', '', strtolower($lang)) . '-flag.png'; ?>" />&nbsp;
+                    <?php echo $lang; ?>
+                  </a>
+                </li>
               <?php }
             } ?>
           </ul>

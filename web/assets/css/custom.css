@@ -14,10 +14,6 @@ body {
   background-color: black;
 }
 
-.top-stripe img {
-  margin-left: 90px;
-}
-
 .top-stripe .lang-selector * {
   font-size: 10px;
 }
@@ -25,8 +21,21 @@ body {
 .top-stripe .lang-selector {
   position: relative;
   color: #fff;
-  margin-right: 50px;
+  margin-right: 5px;
   float: right;
+}
+
+.top-stripe .lang-selector .flag {
+  width: 16px;
+  height: 16px;
+}
+
+.top-stripe .lang-selector .dropdown-menu li {
+  width: 100px;
+}
+
+.top-stripe .lang-selector .dropdown-menu {
+  min-width: 100px;
 }
 
 .top-stripe .lang-selector .btn {
@@ -37,7 +46,6 @@ body {
 
 .top-stripe .lang-selector ul {
   margin-top: 5px;
-  margin-left: -88px;
 }
 
 .top-stripe .lang-selector a {
