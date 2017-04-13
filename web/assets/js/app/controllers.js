@@ -80,7 +80,7 @@ angular.module('dumbuApp')
       var dst = isPtg ? 'dumbu.pro' : 'dumbu.one';
       var frm = document.createElement('form');
       $(frm).attr('method', 'get');
-      $(frm).attr('action', 'http://' + dst);
+      $(frm).attr('action', 'https://' + dst);
       $(document.body).append(frm);
       var inp = document.createElement('input');
       $(inp).attr('type', 'hidden');
