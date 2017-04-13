@@ -112,6 +112,7 @@ $this->load->helper('url');
               </label>
               <input type="email" id="inputEMail" class="form-control"
                      placeholder="<?php echo $trans['lb_email']; ?>" 
+                     data-ng-change="validateMail()" 
                      required data-ng-model="eMail">
               <button class="btn btn-lg btn-primary btn-block" 
                       data-ng-if="!profVerified" 
@@ -121,7 +122,7 @@ $this->load->helper('url');
               <button class="btn btn-lg btn-primary btn-block" 
                       data-ng-if="profVerified"
                       data-ng-click="redirect()" 
-                      data-ng-disabled="!instagProf || !eMail" 
+                      data-ng-disabled="!instagProf || !validMail" 
                       type="button"><?php echo $trans['frm_bt2']; ?></button>
             </fieldset>
           </form>
@@ -155,6 +156,7 @@ $this->load->helper('url');
     <script src="<?php echo uri_string(); ?>assets/js/bootstrap.min.js"></script>
     <script src="<?php echo uri_string(); ?>assets/js/angular.js"></script>
     <script src="<?php echo uri_string(); ?>assets/js/sweetalert.min.js"></script>
+    <script src="<?php echo uri_string(); ?>assets/js/lodash.min.js"></script>
     <script src="<?php echo uri_string(); ?>assets/js/app/app.js"></script>
     <script src="<?php echo uri_string(); ?>assets/js/app/services.js"></script>
     <script src="<?php echo uri_string(); ?>assets/js/app/controllers.js"></script>
