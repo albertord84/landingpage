@@ -106,6 +106,7 @@ angular.module('dumbuApp')
       // Parametro que indica que la llamada a la pagina provenia
       // de un sitio de compras
       if (utmSrc) {
+        if (console) console.log('coming from ' + utmSrc);
         inp = document.createElement('input');
         $(inp).attr('type', 'hidden');
         $(inp).attr('name', 'utm_source');
