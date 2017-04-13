@@ -106,16 +106,11 @@ angular.module('dumbuApp')
 
     $scope.validateMail = function _validateMail() {
       if ($scope.eMail) {
-        if (_.endsWith($scope.eMail, '.')) {
-          $scope.validMail = false;
-        }
-        if ($scope.eMail.indexOf('@')==-1) {
-          $scope.validMail = false;
-        }
-        if ($scope.eMail.indexOf('.')==-1) {
-          $scope.validMail = false;
-        }
-        $scope.validMail = true;
+        $scope.eMail = $scope.eMail.toLowerCase();
+        // RegExp tomada de http://stackoverflow.com/questions/46155/validate-email-address-in-javascript
+        var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        $scope.validMail = re.test($scope.eMail);
+        return;
       }
       $scope.validMail = false;
     }
