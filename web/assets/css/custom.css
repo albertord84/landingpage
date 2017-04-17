@@ -111,6 +111,10 @@ body {
 
 .top-header .right .left-border {
   border-left: solid 1px #c8c9cb;
+  position: absolute;
+  width: 2px;
+  height: 100%;
+  margin: -10px 0px 0 -20px;
 }
 
 .top-header .right .flags {

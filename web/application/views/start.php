@@ -74,6 +74,7 @@ $this->load->helper('url');
         </div> <!-- end top left contents -->
 
         <div class="right col-xs-12 col-sm-6 col-md-5 col-lg-5">
+          <div class="left-border hidden-xs"></div>
           <p class="flags"><img src="<?php echo uri_string(); ?>assets/img/flags.png" /></p>
           <p class="text-uppercase">
             <b><?php echo $trans['p-upper']; ?></b>
