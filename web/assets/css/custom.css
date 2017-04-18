@@ -226,23 +226,12 @@ body {
   margin-bottom: 25px;
 }
 
-.map .map-left {
-  padding-right: 0px; 
-  margin-right: 0px;
+.map .col-xs-12 img {
+  width: 100%;
 }
 
-.map .map-left img {
-  width: 366px;
-  height: 420px;
-}
-
-.map .map-right {
-  padding-left: 0px; 
-  margin-left: -30px;
-}
-
-.map .map-right img {
-  width: 366px;
+.map .col-sm-12 img {
+  width: 732px;
   height: 420px;
 }
 
