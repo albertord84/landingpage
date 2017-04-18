@@ -142,7 +142,7 @@ $this->load->helper('url');
           <span class=""><?php echo $trans['map_title']; ?></span>
         </div>
         <div class="col-xs-12 hidden-sm hidden-md hidden-lg text-center">
-          <img src="<?php echo uri_string(); ?>assets/img/map-xs.png">
+          <img src="<?php echo uri_string(); ?>assets/img/map-lg.png">
         </div>
         <div class="hidden-xs col-sm-12 col-md-12 col-lg-12 text-center">
           <img src="<?php echo uri_string(); ?>assets/img/map-lg.png">

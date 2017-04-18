@@ -227,7 +227,8 @@ body {
 }
 
 .map .col-xs-12 img {
-  width: 100%;
+  width: 400px;
+  height: 244px;
 }
 
 .map .col-sm-12 img {
