@@ -4,6 +4,9 @@ angular.module('dumbuApp')
   '$scope', '$timeout', 'InstagProfile', 
   function _MainController($scope, $timeout, InstagProfile) {
     $scope.profName = '@user';
+    $scope.getLang = function() {
+      return $('#dropdownLang').text().trim().toLowerCase();
+    };
     // Para coger parametros que pudieran pasarse a la pagina
     // Esta funcion la tome de:
     // http://stackoverflow.com/questions/901115
@@ -111,7 +114,7 @@ angular.module('dumbuApp')
 
     $scope.redirect = function _redirect() {
       $scope.loading = true;
-      var l = $('#dropdownLang').text().trim().toLowerCase();
+      var l = $scope.getLang();
       var isPtg = l == "pt - br";
       var isEng = l == "en - us";
       var dst = isPtg ? 'dumbu.pro' : 'dumbu.one';
