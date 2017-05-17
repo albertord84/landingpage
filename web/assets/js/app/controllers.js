@@ -6,11 +6,41 @@ angular.module('dumbuApp')
     $scope.profName = '@user';
     // Para coger parametros que pudieran pasarse a la pagina
     // Esta funcion la tome de:
-    // http://stackoverflow.com/questions/901115/
-    //   how-can-i-get-query-string-values-in-javascript/901144#901144
+    // http://stackoverflow.com/questions/901115
+    //      /how-can-i-get-query-string-values-in-javascript
+    //      /901144#901144
     $scope.getParamByName = function _getParamByName(name) {
       var match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
       return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
+    };
+    // Para convertir la URL en un arreglo y poder coger
+    // todos sus parametros. Tomado de:
+    // http://stackoverflow.com/questions/4297765
+    //      /make-a-javascript-array-from-url
+    $scope.urlToArray = function(url) {
+      function endsWith(str, suffix) {
+        return str.indexOf(suffix, str.length - suffix.length) !== -1;
+      }
+      var request = {};
+      var arr = [];
+      var pairs = url.substring(url.indexOf('?') + 1).split('&');
+      for (var i = 0; i < pairs.length; i++) {
+        var pair = pairs[i].split('=');
+        if(endsWith(decodeURIComponent(pair[0]), '[]') ) {
+          var arrName = decodeURIComponent(pair[0])
+            .substring(0, decodeURIComponent(pair[0]).length - 2);
+          if(!(arrName in arr)) {
+            arr.push(arrName);
+            arr[arrName] = [];
+          }
+          arr[arrName].push(decodeURIComponent(pair[1]));
+          request[arrName] = arr[arrName];
+        } else {
+          request[decodeURIComponent(pair[0])] = 
+            decodeURIComponent(pair[1]);
+        }
+      }
+      return request;
     };
     // Jugar con la K o la M si son cientos, miles,
     // cientos de miles o millones la cantidad de
@@ -80,7 +110,6 @@ angular.module('dumbuApp')
     };
 
     $scope.redirect = function _redirect() {
-      var utmSrc = $scope.getParamByName('utm_source');
       $scope.loading = true;
       var l = $('#dropdownLang').text().trim().toLowerCase();
       var isPtg = l == "pt - br";
@@ -101,17 +130,16 @@ angular.module('dumbuApp')
         'value': $scope.eMail
       });
       $(frm).append(inp);
-      // Parametro que indica que la llamada a la pagina provenia
-      // de un sitio de compras
-      if (utmSrc) {
-        if (console) console.log('coming from ' + utmSrc);
+      // Parametros que se pasaron al llamar a la pagina
+      _.forEach($scope.urlToArray(window.location.href), function(value, key) 
+      {
+        if (console) console.log('adding parameter: ' + key);
         inp = document.createElement('input');
         $(inp).attr({ 
-          'type': 'hidden', 'name': 'utm_source', 
-          'value': utmSrc
+          'type': 'hidden', 'name': key, 'value': value
         });
         $(frm).append(inp);
-      }
+      });
       $timeout(function _delaySubmit() {
         // Desbloquear formulario
         $scope.loading = false;
