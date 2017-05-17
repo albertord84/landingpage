@@ -26,7 +26,7 @@ $GLOBALS['d_locales'] = [
 		'lang' => 'PT - BR',
 		'h4-1' => 'Resultados reais para seu Instagram!',
 		'h4-2' => 'Analise sua conta abaixo:',
-		'p-upper' => '&iexcl;DUMBU &eacute; global!',
+		'p-upper' => 'DUMBU &eacute; global!',
 		'small1' => 'Temos clientes em mais de 200 pa&iacute;ses.',
 		'small2' => 'Fa&ccedil;a parte de uma das Startups que mais cresce nos ' . 
 		            '&uacute;ltimos tempos!',
