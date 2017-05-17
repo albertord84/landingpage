@@ -52,6 +52,7 @@ angular.module('dumbuApp')
             var s = 5;
             // Mostrar texto de que se esta haciendo algo...
             var l = $scope.getLang();
+            if (console) console.log('checking instagram profile');
             if (l == 'pt - br') {
               $('.form-signin button').text('Analizando...');
             }
