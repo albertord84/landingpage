@@ -86,6 +86,18 @@ angular.module('dumbuApp')
           // al seleccionar un idioma diferente
           var frm = document.createElement('form');
           $(frm).attr({ 'method': 'get', 'action': '.' });
+          // Se agrega ahora que si se cambia de idioma, no
+          // se pueden perder los parametros con que se llego
+          // a la pagina
+          _.forEach($scope.urlToArray(window.location.href), function(value, key) 
+          {
+            if (console) console.log('adding parameter: ' + key);
+            var inp = document.createElement('input');
+            $(inp).attr({ 
+              'type': 'hidden', 'name': key, 'value': value
+            });
+            $(frm).append(inp);
+          });
           $(document.body).append(frm);
           // Redireccionar de acuerdo al idioma
           if (val.indexOf('pt')!=-1) {
