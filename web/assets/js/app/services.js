@@ -50,6 +50,14 @@ angular.module('dumbuApp')
             // Cambiar campos del formulario
             $scope.profVerified = true;
             var s = 5;
+            // Mostrar texto de que se esta haciendo algo...
+            var l = $scope.getLang();
+            if (l == 'pt - br') {
+              $('.form-signin button').text('Analizando...');
+            }
+            else if (l == 'en - us') {
+              $('.form-signin button').text('Checking...');
+            }
             var promise = $interval(function _changeSeconds(){
               $scope.loading = false;
               // Agregar al texto del boton el conteo regresivo de 5 seg
