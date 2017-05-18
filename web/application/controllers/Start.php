@@ -14,7 +14,7 @@ class Start extends CI_Controller {
 		
 		$data['langList'] = d_get_locale_list();
 		
-		if ($l) {
+		if ( in_array($l, $data['langList']) ) {
 			$data['_l'] = $l;
 		}
 		else {
