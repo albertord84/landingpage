@@ -195,7 +195,7 @@ angular.module('dumbuApp')
     $scope.inputKeyPress = function($event) {
       var k = $event.keyCode;
       if ($scope.frmSign.$valid && k == 13) {
-        $('.form-signin').submit();
+        $scope.checkInstagProfile();
       }
     };
 
