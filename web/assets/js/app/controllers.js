@@ -93,12 +93,14 @@ angular.module('dumbuApp')
           if (url.indexOf('?')!=-1) {
             _.forEach($scope.urlToArray(url), function(value, key) 
             {
-              if (console) console.log('adding parameter: ' + key);
-              var inp = document.createElement('input');
-              $(inp).attr({ 
-                'type': 'hidden', 'name': key, 'value': value
-              });
-              $(frm).append(inp);
+              if (key != 'l') { // Obviar parametro 'l'
+                if (console) console.log('adding parameter: ' + key);
+                var inp = document.createElement('input');
+                $(inp).attr({ 
+                  'type': 'hidden', 'name': key, 'value': value
+                });
+                $(frm).append(inp);
+              }
             });
           }
           $(document.body).append(frm);

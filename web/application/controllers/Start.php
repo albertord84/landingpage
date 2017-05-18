@@ -14,7 +14,7 @@ class Start extends CI_Controller {
 		
 		$data['langList'] = d_get_locale_list();
 		
-		if ( in_array($l, $data['langList']) ) {
+		if ( array_key_exists($l, $data['langList']) ) {
 			$data['_l'] = $l;
 		}
 		else {
@@ -23,7 +23,7 @@ class Start extends CI_Controller {
 		$l = $data['_l'];
 
 		unset( $data['langList'][ $l ] );
-		
+
 		$this->load->view('start', $data);
 	}
 }
