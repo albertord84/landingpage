@@ -56,3 +56,4 @@ function d_get_locale_list() {
 	}
 	return $list;
 }
+
