@@ -20,11 +20,13 @@ angular.module('dumbuApp')
           'instagProf': $scope.instagProf,
           'eMail': $scope.eMail
         }).$promise.then(function _getProfileInfoSuccess(_json) {
+          var l = $scope.getLang();
           if (console) console.log(_json);
           if (angular.isUndefined(_json.username)) {
             swal({
               title: "Error",
-              text: "Perfil não existe",
+              text: (l == 'pt - br' ? "Perfil não existe" : 
+                "Non existing profile"),
               type: "error"
             });
             $scope.loading = false;
