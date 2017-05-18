@@ -34,23 +34,25 @@ $this->load->helper('url');
           <a class="btn btn-default dropdown-toggle" 
                   type="button" id="dropdownLang" data-toggle="dropdown" 
                   aria-haspopup="true" aria-expanded="true">
-            <img class="hidden-xs flag" src="<?php echo uri_string() . 'assets/img/' . 
-              str_replace(' ', '', strtolower($trans['lang'])) . '-flag.png'; ?>" />&nbsp;
+            <img class="hidden-xs flag" 
+                 src="<?php echo uri_string() . 'assets/img/' . 
+                            str_replace(' ', '', strtolower($trans['lang'])) . 
+                            '-flag.png'; ?>" />&nbsp;
             <?php echo $trans['lang']; ?>
             <span class="caret"></span>
           </a>
           <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownLang">
             <?php foreach ($langList as $key => $lang) {
-              if ($key != $_l) { ?>
-                <li>
-                  <a href="#">
-                    <img class="hidden-xs flag" src="<?php echo uri_string() . 'assets/img/' . 
-                      str_replace(' ', '', strtolower($lang)) . '-flag.png'; ?>" />&nbsp;
-                    <?php echo $lang; ?>
-                  </a>
-                </li>
-              <?php }
-            } ?>
+              <li>
+                <a href="#">
+                  <img class="hidden-xs flag" 
+                       src="<?php echo uri_string() . 'assets/img/' . 
+                              str_replace(' ', '', strtolower($lang)) . 
+                              '-flag.png'; ?>" />&nbsp;
+                  <?php echo $lang; ?>
+                </a>
+              </li>
+            <?php } ?>
           </ul>
         </span>
       </div>

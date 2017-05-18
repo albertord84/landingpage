@@ -20,6 +20,9 @@ class Start extends CI_Controller {
 		else {
 			$data['_l'] = 'pt';
 		}
+		$l = $data['_l'];
+
+		unset( $data['langList'][ $l ] );
 		
 		$this->load->view('start', $data);
 	}
