@@ -114,6 +114,7 @@ $this->load->helper('url');
               <label for="inputProf" 
                      class="sr-only text-left"><?php echo $trans['lb_user']; ?></label>
               <input type="text" id="inputProf" 
+                     data-ng-keypress="inputKeyPress($event)"
                      class="form-control text-left" 
                      placeholder="<?php echo $trans['lb_user']; ?>" 
                      data-ng-change="profLowerCase()" 
@@ -124,6 +125,7 @@ $this->load->helper('url');
               <input type="email" id="inputEMail" class="form-control"
                      placeholder="<?php echo $trans['lb_email']; ?>" 
                      data-ng-change="validateMail()" 
+                     data-ng-keypress="inputKeyPress($event)"
                      required data-ng-model="eMail">
               <button class="btn btn-lg btn-primary btn-block" 
                       data-ng-if="!profVerified" 
