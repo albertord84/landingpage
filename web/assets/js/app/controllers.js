@@ -91,7 +91,7 @@ angular.module('dumbuApp')
           // a la pagina
           var url = window.location.href;
           if (_.endsWith(url, '#')) {
-            url = _.trimRight(url, '#');
+            url = _.trimEnd(url, '#');
           }
           if (url.indexOf('?')!=-1) {
             _.forEach($scope.urlToArray(url), function(value, key) 
