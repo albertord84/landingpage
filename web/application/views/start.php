@@ -42,7 +42,7 @@ $this->load->helper('url');
             <span class="caret"></span>
           </a>
           <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownLang">
-            <?php foreach ($langList as $key => $lang) {
+            <?php foreach ($langList as $key => $lang) { ?>
               <li>
                 <a href="#">
                   <img class="hidden-xs flag" 
