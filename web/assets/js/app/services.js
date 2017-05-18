@@ -6,14 +6,7 @@ angular.module('dumbuApp')
     return {
       checkProfile: function _checkProfile($scope) {
         // Mostrar texto de que se esta haciendo algo...
-        var l = $scope.getLang();
-        if (console) console.log('checking instagram profile');
-        if (l == 'pt - br') {
-          $('.form-signin button').text('Analizando...');
-        }
-        else if (l == 'en - us') {
-          $('.form-signin button').text('Checking...');
-        }
+        $scope.changeChkProfileButtonText();
         // Obtener URL base
         var ub = window.location.href;
         if (ub.indexOf('?')!=-1) ub = ub.split('?')[0];
@@ -35,6 +28,8 @@ angular.module('dumbuApp')
               type: "error"
             });
             $scope.loading = false;
+            // Devolver texto del boton
+            $scope.restoreChkProfileButtonText();
             return;
           }
           $timeout(function _delayProfilePhotoShow() {

@@ -199,6 +199,26 @@ angular.module('dumbuApp')
       }
     };
 
+    $scope.changeChkProfileButtonText = function() {
+      var l = $scope.getLang();
+      if (l == 'pt - br') {
+        $('.form-signin button').text('Analizando...');
+      }
+      else if (l == 'en - us') {
+        $('.form-signin button').text('Checking...');
+      }
+    };
+
+    $scope.restoreChkProfileButtonText = function() {
+      var l = $scope.getLang();
+      if (l == 'pt - br') {
+        $('.form-signin button').text('Analizar');
+      }
+      else if (l == 'en - us') {
+        $('.form-signin button').text('Verify');
+      }
+    };
+
     $scope.setKMSubscribersCount();
     $scope.setLangSelectorEvents();
 
