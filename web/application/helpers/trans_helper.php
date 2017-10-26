@@ -1,7 +1,7 @@
 <?php
 
 // Lista de idiomas de DUMBU
-$GLOBALS['d_llist'] = [ 'en', 'pt' ];
+$GLOBALS['d_llist'] = [ 'en', 'pt', 'es' ];
 
 // Esto luego se puede pasar a una BD o a archivos
 // independientes por cada idioma
@@ -32,13 +32,31 @@ $GLOBALS['d_locales'] = [
 		            '&uacute;ltimos tempos!',
 		'center' => 'Ap&oacute;s analisar sua conta voc&ecirc; ser&aacute; ' . 
 		            'direcionado para o site',
-		'frm_title' => 'Verifique seu instagram aqui',
+		'frm_title' => 'Verifique seu Instagram aqui',
 		'lb_user' => 'Usu&aacute;rio do Instagram',
 		'lb_email' => 'E-mail',
 		'frm_bt' => 'Analisar',
 		'frm_bt2' => 'Ir para o site',
 		'map_title' => 'Pa&iacute;ses com assinantes Dumbu',
 		'copy_r' => 'TODOS OS DIREITOS RESERVADOS'
+    ],
+	'es' => [
+		'lang' => 'ES - ES',
+		'h4-1' => '&iexcl;Resultados reales para tu Instagram!',
+		'h4-2' => 'Verifique su cuenta abajo:',
+		'p-upper' => '&iexcl;DUMBU es global!',
+		'small1' => 'Tenemos clientes en m&aacute;s de 200 pa&iacute;ses.',
+		'small2' => '&iexcl;Hazte participante de uno de los Startups m&aacute;s crecientes de ' . 
+		            'estos tiempos!',
+		'center' => 'Al verificar su cuenta ser&aacute; redirigido ' . 
+		            'a su sitio',
+		'frm_title' => 'Verifica tu Instagram aqu&iacute;',
+		'lb_user' => 'Usuario de Instagram',
+		'lb_email' => 'E-mail',
+		'frm_bt' => 'Verificar',
+		'frm_bt2' => 'Ir al sitio',
+		'map_title' => 'Pa&iacute;ses con clientes Dumbu',
+		'copy_r' => 'TODOS LOS DERECHOS RESERVADOS'
 	]
 ];
 
