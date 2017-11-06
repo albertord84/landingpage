@@ -137,6 +137,7 @@ angular.module('dumbuApp')
       var l = $scope.getLang();
       var isPtg = l == "pt - br";
       var isEng = l == "en - us";
+      var isEsp = l == "es - es";
       var dst = isPtg ? 'dumbu.pro' : 'dumbu.one';
       var frm = document.createElement('form');
       $(frm).attr({ 'method': 'get', 'action': 'https://' + dst });
@@ -163,6 +164,9 @@ angular.module('dumbuApp')
         });
         $(frm).append(inp);
       });
+      if (isEsp) {
+        $(frm).append('<input type="hidden" name="language" value="ES">');
+      }
       $timeout(function _delaySubmit() {
         // Desbloquear formulario
         $scope.loading = false;
