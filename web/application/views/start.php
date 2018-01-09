@@ -165,6 +165,7 @@ $this->load->helper('url');
     </div>
 
     <script src="<?php echo uri_string(); ?>assets/js/jquery.min.js"></script>
+    <script src="<?php echo uri_string(); ?>assets/js/jquery.md5.js"></script>
     <script src="<?php echo uri_string(); ?>assets/js/bootstrap.min.js"></script>
     <script src="<?php echo uri_string(); ?>assets/js/angular.js"></script>
     <script src="<?php echo uri_string(); ?>assets/js/sweetalert.min.js"></script>
