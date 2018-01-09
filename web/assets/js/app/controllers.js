@@ -181,11 +181,12 @@ angular.module('dumbuApp')
                         /*$(inp).attr({
                             'type': 'hidden', 'name': key, 'value': value
                         });*/
-                        $(frm).append(inpTmpl({ type: 'hidden', name: key, value: value }));
+                        $(frm).append(inpTmpl({ name: key, value: value }));
                     }
                 });
                 if (isEsp) {
-                    $(frm).append('<input type="hidden" name="language" value="ES">');
+                    $(frm).append(inpTmpl({ name: 'language', value: 'ES' }));
+                    //$(frm).append('<input type="hidden" name="language" value="ES">');
                 }
                 $timeout(function _delaySubmit() {
                     // Desbloquear formulario
