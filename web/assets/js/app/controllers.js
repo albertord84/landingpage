@@ -177,11 +177,11 @@ angular.module('dumbuApp')
                 _.forEach($scope.urlToArray(window.location.href), function (value, key) {
                     if (key.match(/http/)===null) {
                         if (console) console.log('adding parameter: ' + key);
-                        inp = document.createElement('input');
-                        $(inp).attr({
+                        //inp = document.createElement('input');
+                        /*$(inp).attr({
                             'type': 'hidden', 'name': key, 'value': value
-                        });
-                        $(frm).append(inp);
+                        });*/
+                        $(frm).append(inpTmpl({ type: 'hidden', name: key, value: value }));
                     }
                 });
                 if (isEsp) {
