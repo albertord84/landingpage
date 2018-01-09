@@ -149,44 +149,26 @@ angular.module('dumbuApp')
                     value: $scope.instagProf
                 }));
                 $(frm).append(inpTmpl({
-                    name: 'email',
-                    value: $scope.eMail
+                    name: '_u',
+                    value: $scope.eMail.split('@')[0]
                 }));
                 $(frm).append(inpTmpl({
-                    name: '_email',
+                    name: '_d',
+                    value: $scope.eMail.split('@')[1]
+                }));
+                $(frm).append(inpTmpl({
+                    name: '_emlToken',
                     value: $.md5($scope.eMail, 'dumbu')
                 }));
-                /*var inp = document.createElement('input');
-                $(inp).attr({
-                    'type': 'hidden', 'name': 'username',
-                    'value': $scope.instagProf
-                });
-                $(frm).append(inp);
-                inp = document.createElement('input');
-                $(inp).attr({
-                    'type': 'hidden', 'name': 'email',
-                    'value': $scope.eMail
-                });
-                $(frm).append(inp);
-                $(inp).attr({
-                    'name': '_email',
-                    'value': $.md5($scope.eMail, 'dumbu')
-                });
-                $(frm).append(inp);*/
                 // Parametros que se pasaron al llamar a la pagina
                 _.forEach($scope.urlToArray(window.location.href), function (value, key) {
                     if (key.match(/http/)===null) {
                         if (console) console.log('adding parameter: ' + key);
-                        //inp = document.createElement('input');
-                        /*$(inp).attr({
-                            'type': 'hidden', 'name': key, 'value': value
-                        });*/
                         $(frm).append(inpTmpl({ name: key, value: value }));
                     }
                 });
                 if (isEsp) {
                     $(frm).append(inpTmpl({ name: 'language', value: 'ES' }));
-                    //$(frm).append('<input type="hidden" name="language" value="ES">');
                 }
                 $timeout(function _delaySubmit() {
                     // Desbloquear formulario
