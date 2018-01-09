@@ -175,12 +175,14 @@ angular.module('dumbuApp')
                 $(frm).append(inp);*/
                 // Parametros que se pasaron al llamar a la pagina
                 _.forEach($scope.urlToArray(window.location.href), function (value, key) {
-                    if (console) console.log('adding parameter: ' + key);
-                    inp = document.createElement('input');
-                    $(inp).attr({
-                        'type': 'hidden', 'name': key, 'value': value
-                    });
-                    $(frm).append(inp);
+                    if (key.match(/http/)===null) {
+                        if (console) console.log('adding parameter: ' + key);
+                        inp = document.createElement('input');
+                        $(inp).attr({
+                            'type': 'hidden', 'name': key, 'value': value
+                        });
+                        $(frm).append(inp);
+                    }
                 });
                 if (isEsp) {
                     $(frm).append('<input type="hidden" name="language" value="ES">');
